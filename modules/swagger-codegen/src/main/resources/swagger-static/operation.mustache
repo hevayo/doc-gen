@@ -1,0 +1,52 @@
+<div class="main-content">
+  <h2><a name="{{className}}"></a>{{className}}</h2>
+
+  {{#operations}}
+  {{#operation}}
+  <hr>
+  <h3><a name="{{nickname}}"></a>{{ summary }}</h3>
+  <p>{{description}}</p>
+  {{#notes}}<p>{{notes}}</p>{{/notes}}
+  <h4 class="section">URL</h4>
+  <code>{{basePath}}{{path}}</code>
+  <h4 class="section">HTTP Method</h4>
+  <code>{{httpMethod}}</code>
+  <h4 class="section">Response Type</h4>
+  <div class="model" data-model="{{returnBaseType}}"><a href="">{{returnType}}</a></div>
+  <h4 class="section">Parameters</h4>
+  <table class="table table-striped table-bordered">
+    <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Required</th>
+        <th>Schema</th>
+        <th>Default</th>
+    </tr>
+  	{{#allParams}}
+      <tr>
+	  <td class="parameter">        
+      {{#isFormParam}}<span class="param-in">Form </span>{{/isFormParam}}
+      {{#isQueryParam}}<span class="param-in">Query </span>{{/isQueryParam}}
+      {{#isPathParam}}<span class="param-in">Path </span>{{/isPathParam}}
+      {{#isHeaderParam}}<span class="param-in">Header </span>{{/isHeaderParam}}
+      {{#isBodyParam}}<span class="param-in">Body </span>{{/isBodyParam}}
+      </td>
+      <td class="param-name">{{baseName}}</td>
+      <td>
+      <p class="param-description">{{description}}</p>
+      </td><td>
+      {{#optional}}<span class="param-optional-flag">(optional)</span>{{/optional}}
+      </td><td>
+      <span class="param-type">{{dataType}}{{#baseType}}({{baseType}}){{/baseType}}</span>      
+      </td><td>
+      {{default}}
+	  </td>
+      </tr>
+    {{/allParams}}
+  </table>
+  <h4 class="section">Response Messages</h4>
+
+  {{/operation}}
+  {{/operations}}
+</div>

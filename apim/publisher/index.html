@@ -1,0 +1,2980 @@
+<?xml version="1.0"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>WSO2 API Manager - Publisher</title>
+    <style type="text/css">
+      body { 
+	font-family: Trebuchet MS, sans-serif;
+	font-size: 15px;
+	color: #444;
+	margin-right: 24px;
+}
+
+h1	{
+	font-size: 25px;
+}
+h2	{
+	font-size: 20px;
+}
+h3	{
+	font-size: 16px;
+	font-weight: bold;
+}
+hr	{
+	height: 1px;
+	border: 0;
+	color: #ddd;
+	background-color: #ddd;
+	display: none;
+}
+
+.app-desc {
+  clear: both;
+  margin-left: 20px;
+}
+.param-name {
+  width: 100%;
+}
+.license-info {
+  margin-left: 20px;
+}
+
+.license-url {
+  margin-left: 20px;
+}
+
+.model {
+  margin: 0 0 0px 20px;
+}
+
+.method {
+  margin-left: 20px;
+}
+
+.method-notes	{
+	margin: 10px 0 20px 0;
+	font-size: 90%;
+	color: #555;
+}
+
+pre {
+  padding: 10px;
+  margin-bottom: 2px;
+}
+
+.http-method {
+ text-transform: uppercase;
+}
+
+pre.get {
+  background-color: #0f6ab4;
+}
+
+pre.post {
+  background-color: #10a54a;
+}
+
+pre.put {
+  background-color: #c5862b;
+}
+
+pre.delete {
+  background-color: #a41e22;
+}
+
+.huge	{
+	color: #fff;
+}
+
+pre.example {
+  background-color: #f3f3f3;
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+code {
+  white-space: pre;
+}
+
+.nickname {
+  font-weight: bold;
+}
+
+.method-path {
+  font-size: 1.5em;
+  background-color: #0f6ab4;
+}
+
+.up {
+  float:right;
+}
+
+.parameter {
+  width: 500px;
+}
+
+.param {
+  width: 500px;
+  padding: 10px 0 0 20px;
+  font-weight: bold;
+}
+
+.param-desc {
+  width: 700px;
+  padding: 0 0 0 20px;
+  color: #777;
+}
+
+.param-type {
+  font-style: italic;
+}
+
+.param-enum-header {
+width: 700px;
+padding: 0 0 0 60px;
+color: #777;
+font-weight: bold;
+}
+
+.param-enum {
+width: 700px;
+padding: 0 0 0 80px;
+color: #777;
+font-style: italic;
+}
+
+.field-label {
+  padding: 0;
+  margin: 0;
+  clear: both;
+}
+
+.field-items	{
+	padding: 0 0 15px 0;
+	margin-bottom: 15px;
+}
+
+.return-type {
+  clear: both;
+  padding-bottom: 10px;
+}
+
+.param-header {
+  font-weight: bold;
+}
+
+.method-tags {
+  text-align: right;
+}
+
+.method-tag {
+  background: none repeat scroll 0% 0% #24A600;
+  border-radius: 3px;
+  padding: 2px 10px;
+  margin: 2px;
+  color: #FFF;
+  display: inline-block;
+  text-decoration: none;
+}
+    </style>
+  </head>
+  <body>
+  <h1>WSO2 API Manager - Publisher</h1>
+    <div class="app-desc">This document specifies a **RESTful API** for WSO2 **API Manager** - Publisher.\n\nIt is written with [swagger 2](http://swagger.io/).</div>
+    <div class="app-desc">More information: <a href="http://wso2.com/products/api-manager/">http://wso2.com/products/api-manager/</a></div>
+    <div class="app-desc">Contact Info: <a href="architecture@wso2.com">architecture@wso2.com</a></div>
+    <div class="app-desc">Version: 0.9.0</div>
+    <div class="license-info">Apache 2.0</div>
+    <div class="license-url">http://www.apache.org/licenses/LICENSE-2.0.html</div>
+  <h2>Access</h2>
+  
+
+  <h2><a name="__Methods">Methods</a></h2>
+  [ Jump to <a href="#__Models">Models</a> ]
+
+  
+  <h2>Table of Contents </h2>
+  <div class="method-summary"></div>
+  
+  <ol>
+  
+  
+  
+  <li><a href="#apisGet"><code><span class="http-method">get</span> /apis</code></a></li>
+  
+  <li><a href="#apisPost"><code><span class="http-method">post</span> /apis</code></a></li>
+  
+  <li><a href="#apisChangeLifecyclePost"><code><span class="http-method">post</span> /apis/change-lifecycle</code></a></li>
+  
+  <li><a href="#apisCopyApiPost"><code><span class="http-method">post</span> /apis/copy-api</code></a></li>
+  
+  <li><a href="#apisApiIdGet"><code><span class="http-method">get</span> /apis/{apiId}</code></a></li>
+  
+  <li><a href="#apisApiIdPut"><code><span class="http-method">put</span> /apis/{apiId}</code></a></li>
+  
+  <li><a href="#apisApiIdDelete"><code><span class="http-method">delete</span> /apis/{apiId}</code></a></li>
+  
+  <li><a href="#apisApiIdDocumentsGet"><code><span class="http-method">get</span> /apis/{apiId}/documents</code></a></li>
+  
+  <li><a href="#apisApiIdDocumentsPost"><code><span class="http-method">post</span> /apis/{apiId}/documents</code></a></li>
+  
+  <li><a href="#apisApiIdDocumentsDocumentIdGet"><code><span class="http-method">get</span> /apis/{apiId}/documents/{documentId}</code></a></li>
+  
+  <li><a href="#apisApiIdDocumentsDocumentIdPut"><code><span class="http-method">put</span> /apis/{apiId}/documents/{documentId}</code></a></li>
+  
+  <li><a href="#apisApiIdDocumentsDocumentIdDelete"><code><span class="http-method">delete</span> /apis/{apiId}/documents/{documentId}</code></a></li>
+  
+  <li><a href="#apisApiIdDocumentsDocumentIdContentGet"><code><span class="http-method">get</span> /apis/{apiId}/documents/{documentId}/content</code></a></li>
+  
+  <li><a href="#apisApiIdDocumentsDocumentIdContentPost"><code><span class="http-method">post</span> /apis/{apiId}/documents/{documentId}/content</code></a></li>
+  
+  <li><a href="#apisApiIdSwaggerGet"><code><span class="http-method">get</span> /apis/{apiId}/swagger</code></a></li>
+  
+  <li><a href="#apisApiIdSwaggerPut"><code><span class="http-method">put</span> /apis/{apiId}/swagger</code></a></li>
+  
+  <li><a href="#applicationsApplicationIdGet"><code><span class="http-method">get</span> /applications/{applicationId}</code></a></li>
+  
+  <li><a href="#environmentsGet"><code><span class="http-method">get</span> /environments</code></a></li>
+  
+  <li><a href="#subscriptionsGet"><code><span class="http-method">get</span> /subscriptions</code></a></li>
+  
+  <li><a href="#subscriptionsBlockSubscriptionPost"><code><span class="http-method">post</span> /subscriptions/block-subscription</code></a></li>
+  
+  <li><a href="#subscriptionsUnblockSubscriptionPost"><code><span class="http-method">post</span> /subscriptions/unblock-subscription</code></a></li>
+  
+  <li><a href="#subscriptionsSubscriptionIdGet"><code><span class="http-method">get</span> /subscriptions/{subscriptionId}</code></a></li>
+  
+  <li><a href="#tiersUpdatePermissionPost"><code><span class="http-method">post</span> /tiers/update-permission</code></a></li>
+  
+  <li><a href="#tiersTierLevelGet"><code><span class="http-method">get</span> /tiers/{tierLevel}</code></a></li>
+  
+  <li><a href="#tiersTierLevelPost"><code><span class="http-method">post</span> /tiers/{tierLevel}</code></a></li>
+  
+  <li><a href="#tiersTierLevelTierNameGet"><code><span class="http-method">get</span> /tiers/{tierLevel}/{tierName}</code></a></li>
+  
+  <li><a href="#tiersTierLevelTierNamePut"><code><span class="http-method">put</span> /tiers/{tierLevel}/{tierName}</code></a></li>
+  
+  <li><a href="#tiersTierLevelTierNameDelete"><code><span class="http-method">delete</span> /tiers/{tierLevel}/{tierName}</code></a></li>
+  
+  
+  
+  </ol>
+  
+
+  
+  
+  
+  
+  <div class="method"><a name="apisGet"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /apis</code></pre></div>
+    <div class="method-summary">Retrieving APIs (<span class="nickname">apisGet</span>)</div>
+    
+    <div class="method-notes">Get a list of available APIs qualifying under a given search condition.</div>
+
+    
+
+    
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="heaader">Content-Type</span> request header:
+    <ul>
+    
+      <li><code>application/json</code></li>
+    
+    </ul>
+    
+
+    
+
+    
+
+    
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">limit (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Maximum size of resource array to return. default: 25</div><div class="param">offset (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Starting point within the complete list of items qualified. default: 0</div><div class="param">query (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; **Search condition**.\n\nYou can search in attributes by using an **\&quot;attribute:\&quot;** modifier.\n\nEg. \&quot;provider:wso2\&quot; will match an API if the provider of the API contains \&quot;wso2\&quot;.\n\nSupported attribute modifiers are [**version, context, status,\ndescription, subcontext, doc, provider, tag **]\n\nIf no advanced attribute modifier has been specified, search will match the\ngiven query string against API Name. </div>
+    </div>  <!-- field-items -->
+    
+
+    
+
+    
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#APIList">APIList</a>
+      
+    </div>
+    
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    
+
+    
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="heaader">Content-Type</span> response header.
+    <ul>
+    
+      <li><code>application/json</code></li>
+    
+    </ul>
+    
+
+    <h3 class="field-label">Responses</h3>
+    
+    <h4 class="field-label">200</h4>
+    OK. \nList of qualifying APIs is returned.
+    
+    
+    <h4 class="field-label">304</h4>
+    Not Modified. \nEmpty body because the client has already the latest version of the requested resource.
+    
+    
+    <h4 class="field-label">406</h4>
+    Not Acceptable. \nThe requested media type is not supported
+    
+    
+  </div> <!-- method -->
+  <hr/>
+  
+  <div class="method"><a name="apisPost"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /apis</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">apisPost</span>)</div>
+    
+    <div class="method-notes">Create a new API</div>
+
+    
+
+    
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="heaader">Content-Type</span> request header:
+    <ul>
+    
+      <li><code>application/json</code></li>
+    
+    </ul>
+    
+
+    
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">body (required)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash; API object that needs to be added </div>
+    </div>  <!-- field-items -->
+    
+
+    
+
+    
+
+    
+
+    
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#API">API</a>
+      
+    </div>
+    
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    
+
+    
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="heaader">Content-Type</span> response header.
+    <ul>
+    
+      <li><code>application/json</code></li>
+    
+    </ul>
+    
+
+    <h3 class="field-label">Responses</h3>
+    
+    <h4 class="field-label">201</h4>
+    Created. \nSuccessful response with the newly created object as entity in the body. \nLocation header contains URL of newly created entity.
+    
+    
+    <h4 class="field-label">400</h4>
+    Bad Request. \nInvalid request or validation error.
+    
+    
+    <h4 class="field-label">415</h4>
+    Unsupported Media Type. \nThe entity of the request was in a not supported format.
+    
+    
+  </div> <!-- method -->
+  <hr/>
+  
+  <div class="method"><a name="apisChangeLifecyclePost"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /apis/change-lifecycle</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">apisChangeLifecyclePost</span>)</div>
+    
+    <div class="method-notes">Change the lifecycle of an API</div>
+
+    
+
+    
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="heaader">Content-Type</span> request header:
+    <ul>
+    
+      <li><code>application/json</code></li>
+    
+    </ul>
+    
+
+    
+
+    
+
+    
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">action (required)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The action to demote or promote the state of the API.\n\nSupported actions are [ **Publish, Deploy as a Prototype, Demote to Created, Demote to Prototyped, Block, Deprecate, Re-Publish, Retire **] </div><div class="param">lifecycleChecklist (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; You can specify additional checklist items by using an **\&quot;attribute:\&quot;** modifier.\n\nEg: \&quot;Deprecate Old Versions:true\&quot; will deprecate older versions of a particular API when it is promoted to \nPublished state from Created state. Multiple checklist items can be given in \&quot;attribute1:true, attribute2:false\&quot;\nformat.\n\nSupported checklist items are as follows.\n1. **Deprecate Old Versions**: Setting this to true will deprecate older versions of a particular API when it is promoted to Published state from Created state.\n2. **Require Re-Subscription**: If you set this to true, users need to re subscribe to the API although they may have subscribed to an older version. </div><div class="param">apiId (required)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; **API ID** consisting of the **UUID** of the API. \nThe combination of the provider of the API, name of the API and the version is also accepted as a valid API I.\nShould be formatted as **provider-name-version**. </div>
+    </div>  <!-- field-items -->
+    
+
+    
+
+    
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    
+
+    
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="heaader">Content-Type</span> response header.
+    <ul>
+    
+      <li><code>application/json</code></li>
+    
+    </ul>
+    
+
+    <h3 class="field-label">Responses</h3>
+    
+    <h4 class="field-label">200</h4>
+    OK. \nLifecycle changed successfully.
+    
+    
+    <h4 class="field-label">400</h4>
+    Bad Request. \nInvalid request or validation error
+    
+    
+    <h4 class="field-label">404</h4>
+    Not Found. \nRequested API does not exist.
+    
+    
+    <h4 class="field-label">412</h4>
+    Precondition Failed. \nThe request has not been performed because one of the preconditions is not met.
+    
+    
+  </div> <!-- method -->
+  <hr/>
+  
+  <div class="method"><a name="apisCopyApiPost"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /apis/copy-api</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">apisCopyApiPost</span>)</div>
+    
+    <div class="method-notes">Create a new API by copying an existing API</div>
+
+    
+
+    
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="heaader">Content-Type</span> request header:
+    <ul>
+    
+      <li><code>application/json</code></li>
+    
+    </ul>
+    
+
+    
+
+    
+
+    
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">newVersion (required)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Version of the new API. </div><div class="param">apiId (required)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; **API ID** consisting of the **UUID** of the API. \nThe combination of the provider of the API, name of the API and the version is also accepted as a valid API I.\nShould be formatted as **provider-name-version**. </div>
+    </div>  <!-- field-items -->
+    
+
+    
+
+    
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    
+
+    
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="heaader">Content-Type</span> response header.
+    <ul>
+    
+      <li><code>application/json</code></li>
+    
+    </ul>
+    
+
+    <h3 class="field-label">Responses</h3>
+    
+    <h4 class="field-label">201</h4>
+    Created. \nSuccessful response with the newly created API as entity in the body. Location header contains URL of newly created API.
+    
+    
+    <h4 class="field-label">400</h4>
+    Bad Request. \nInvalid request or validation error
+    
+    
+    <h4 class="field-label">404</h4>
+    Not Found. \nAPI to copy does not exist.
+    
+    
+  </div> <!-- method -->
+  <hr/>
+  
+  <div class="method"><a name="apisApiIdGet"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /apis/{apiId}</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">apisApiIdGet</span>)</div>
+    
+    <div class="method-notes">Get details of an API</div>
+
+    
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">apiId (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; **API ID** consisting of the **UUID** of the API. \nThe combination of the provider of the API, name of the API and the version is also accepted as a valid API ID.\nShould be formatted as **provider-name-version**. </div>
+    </div>  <!-- field-items -->
+    
+
+    
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="heaader">Content-Type</span> request header:
+    <ul>
+    
+      <li><code>application/json</code></li>
+    
+    </ul>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#API">API</a>
+      
+    </div>
+    
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    
+
+    
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="heaader">Content-Type</span> response header.
+    <ul>
+    
+      <li><code>application/json</code></li>
+    
+    </ul>
+    
+
+    <h3 class="field-label">Responses</h3>
+    
+    <h4 class="field-label">200</h4>
+    OK. \nRequested API is returned
+    
+    
+    <h4 class="field-label">304</h4>
+    Not Modified. \nEmpty body because the client has already the latest version of the requested resource.
+    
+    
+    <h4 class="field-label">404</h4>
+    Not Found. \nRequested API does not exist.
+    
+    
+    <h4 class="field-label">406</h4>
+    Not Acceptable. \nThe requested media type is not supported
+    
+    
+  </div> <!-- method -->
+  <hr/>
+  
+  <div class="method"><a name="apisApiIdPut"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="put"><code class="huge"><span class="http-method">put</span> /apis/{apiId}</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">apisApiIdPut</span>)</div>
+    
+    <div class="method-notes">Update an existing API</div>
+
+    
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">apiId (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; **API ID** consisting of the **UUID** of the API. \nThe combination of the provider of the API, name of the API and the version is also accepted as a valid API ID.\nShould be formatted as **provider-name-version**. </div>
+    </div>  <!-- field-items -->
+    
+
+    
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="heaader">Content-Type</span> request header:
+    <ul>
+    
+      <li><code>application/json</code></li>
+    
+    </ul>
+    
+
+    
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">body (required)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash; API object that needs to be added </div>
+    </div>  <!-- field-items -->
+    
+
+    
+
+    
+
+    
+
+    
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#API">API</a>
+      
+    </div>
+    
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    
+
+    
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="heaader">Content-Type</span> response header.
+    <ul>
+    
+      <li><code>application/json</code></li>
+    
+    </ul>
+    
+
+    <h3 class="field-label">Responses</h3>
+    
+    <h4 class="field-label">200</h4>
+    OK. \nSuccessful response with updated API object
+    
+    
+    <h4 class="field-label">400</h4>
+    Bad Request. \nInvalid request or validation error
+    
+    
+    <h4 class="field-label">403</h4>
+    Forbidden. \nThe request must be conditional but no condition has been specified.
+    
+    
+    <h4 class="field-label">404</h4>
+    Not Found. \nThe resource to be updated does not exist.
+    
+    
+    <h4 class="field-label">412</h4>
+    Precondition Failed. \nThe request has not been performed because one of the preconditions is not met.
+    
+    
+  </div> <!-- method -->
+  <hr/>
+  
+  <div class="method"><a name="apisApiIdDelete"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="delete"><code class="huge"><span class="http-method">delete</span> /apis/{apiId}</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">apisApiIdDelete</span>)</div>
+    
+    <div class="method-notes">Delete an existing API</div>
+
+    
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">apiId (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; **API ID** consisting of the **UUID** of the API. \nThe combination of the provider of the API, name of the API and the version is also accepted as a valid API ID.\nShould be formatted as **provider-name-version**. </div>
+    </div>  <!-- field-items -->
+    
+
+    
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="heaader">Content-Type</span> request header:
+    <ul>
+    
+      <li><code>application/json</code></li>
+    
+    </ul>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    
+
+    
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="heaader">Content-Type</span> response header.
+    <ul>
+    
+      <li><code>application/json</code></li>
+    
+    </ul>
+    
+
+    <h3 class="field-label">Responses</h3>
+    
+    <h4 class="field-label">200</h4>
+    OK. \nResource successfully deleted.
+    
+    
+    <h4 class="field-label">403</h4>
+    Forbidden. \nThe request must be conditional but no condition has been specified.
+    
+    
+    <h4 class="field-label">404</h4>
+    Not Found. \nResource to be deleted does not exist.
+    
+    
+    <h4 class="field-label">412</h4>
+    Precondition Failed. \nThe request has not been performed because one of the preconditions is not met.
+    
+    
+  </div> <!-- method -->
+  <hr/>
+  
+  <div class="method"><a name="apisApiIdDocumentsGet"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /apis/{apiId}/documents</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">apisApiIdDocumentsGet</span>)</div>
+    
+    <div class="method-notes">Get a list of documents belonging to an API.</div>
+
+    
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">apiId (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; **API ID** consisting of the **UUID** of the API. \nThe combination of the provider of the API, name of the API and the version is also accepted as a valid API ID.\nShould be formatted as **provider-name-version**. </div>
+    </div>  <!-- field-items -->
+    
+
+    
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="heaader">Content-Type</span> request header:
+    <ul>
+    
+      <li><code>application/json</code></li>
+    
+    </ul>
+    
+
+    
+
+    
+
+    
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">limit (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Maximum size of resource array to return. default: 25</div><div class="param">offset (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Starting point within the complete list of items qualified. default: 0</div>
+    </div>  <!-- field-items -->
+    
+
+    
+
+    
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#DocumentList">DocumentList</a>
+      
+    </div>
+    
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    
+
+    
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="heaader">Content-Type</span> response header.
+    <ul>
+    
+      <li><code>application/json</code></li>
+    
+    </ul>
+    
+
+    <h3 class="field-label">Responses</h3>
+    
+    <h4 class="field-label">200</h4>
+    OK. \nDocument list is returned.
+    
+    
+    <h4 class="field-label">304</h4>
+    Not Modified. \nEmpty body because the client has already the latest version of the requested resource.
+    
+    
+    <h4 class="field-label">404</h4>
+    Not Found. \nRequested API does not exist.
+    
+    
+    <h4 class="field-label">406</h4>
+    Not Acceptable. \nThe requested media type is not supported
+    
+    
+  </div> <!-- method -->
+  <hr/>
+  
+  <div class="method"><a name="apisApiIdDocumentsPost"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /apis/{apiId}/documents</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">apisApiIdDocumentsPost</span>)</div>
+    
+    <div class="method-notes">Add a new document to an API</div>
+
+    
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">apiId (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; **API ID** consisting of the **UUID** of the API. \nThe combination of the provider of the API, name of the API and the version is also accepted as a valid API ID.\nShould be formatted as **provider-name-version**. </div>
+    </div>  <!-- field-items -->
+    
+
+    
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="heaader">Content-Type</span> request header:
+    <ul>
+    
+      <li><code>application/json</code></li>
+    
+    </ul>
+    
+
+    
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">body (required)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash; Document object that needs to be added </div>
+    </div>  <!-- field-items -->
+    
+
+    
+
+    
+
+    
+
+    
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#Document">Document</a>
+      
+    </div>
+    
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    
+
+    
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="heaader">Content-Type</span> response header.
+    <ul>
+    
+      <li><code>application/json</code></li>
+    
+    </ul>
+    
+
+    <h3 class="field-label">Responses</h3>
+    
+    <h4 class="field-label">201</h4>
+    Created. \nSuccessful response with the newly created Document object as entity in the body. \nLocation header contains URL of newly added document.
+    
+    
+    <h4 class="field-label">400</h4>
+    Bad Request. \nInvalid request or validation error
+    
+    
+    <h4 class="field-label">415</h4>
+    Unsupported media type. \nThe entity of the request was in a not supported format.
+    
+    
+  </div> <!-- method -->
+  <hr/>
+  
+  <div class="method"><a name="apisApiIdDocumentsDocumentIdGet"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /apis/{apiId}/documents/{documentId}</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">apisApiIdDocumentsDocumentIdGet</span>)</div>
+    
+    <div class="method-notes">Get a particular document associated with an API.</div>
+
+    
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">apiId (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; **API ID** consisting of the **UUID** of the API. \nThe combination of the provider of the API, name of the API and the version is also accepted as a valid API ID.\nShould be formatted as **provider-name-version**. </div><div class="param">documentId (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; **Document Identifier** </div>
+    </div>  <!-- field-items -->
+    
+
+    
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="heaader">Content-Type</span> request header:
+    <ul>
+    
+      <li><code>application/json</code></li>
+    
+    </ul>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#Document">Document</a>
+      
+    </div>
+    
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    
+
+    
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="heaader">Content-Type</span> response header.
+    <ul>
+    
+      <li><code>application/json</code></li>
+    
+    </ul>
+    
+
+    <h3 class="field-label">Responses</h3>
+    
+    <h4 class="field-label">200</h4>
+    OK. \nDocument returned.
+    
+    
+    <h4 class="field-label">304</h4>
+    Not Modified. \nEmpty body because the client has already the latest version of the requested resource.
+    
+    
+    <h4 class="field-label">404</h4>
+    Not Found. \nRequested Document does not exist.
+    
+    
+    <h4 class="field-label">406</h4>
+    Not Acceptable. \nThe requested media type is not supported
+    
+    
+  </div> <!-- method -->
+  <hr/>
+  
+  <div class="method"><a name="apisApiIdDocumentsDocumentIdPut"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="put"><code class="huge"><span class="http-method">put</span> /apis/{apiId}/documents/{documentId}</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">apisApiIdDocumentsDocumentIdPut</span>)</div>
+    
+    <div class="method-notes">Update document details.</div>
+
+    
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">apiId (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; **API ID** consisting of the **UUID** of the API. \nThe combination of the provider of the API, name of the API and the version is also accepted as a valid API ID.\nShould be formatted as **provider-name-version**. </div><div class="param">documentId (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; **Document Identifier** </div>
+    </div>  <!-- field-items -->
+    
+
+    
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="heaader">Content-Type</span> request header:
+    <ul>
+    
+      <li><code>application/json</code></li>
+    
+    </ul>
+    
+
+    
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">body (required)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash; Document object that needs to be added </div>
+    </div>  <!-- field-items -->
+    
+
+    
+
+    
+
+    
+
+    
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#Document">Document</a>
+      
+    </div>
+    
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    
+
+    
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="heaader">Content-Type</span> response header.
+    <ul>
+    
+      <li><code>application/json</code></li>
+    
+    </ul>
+    
+
+    <h3 class="field-label">Responses</h3>
+    
+    <h4 class="field-label">200</h4>
+    OK. \nDocument updated
+    
+    
+    <h4 class="field-label">400</h4>
+    Bad Request. \nInvalid request or validation error.
+    
+    
+    <h4 class="field-label">404</h4>
+    Not Found. \nThe resource to be updated does not exist.
+    
+    
+    <h4 class="field-label">412</h4>
+    Precondition Failed. \nThe request has not been performed because one of the preconditions is not met.
+    
+    
+  </div> <!-- method -->
+  <hr/>
+  
+  <div class="method"><a name="apisApiIdDocumentsDocumentIdDelete"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="delete"><code class="huge"><span class="http-method">delete</span> /apis/{apiId}/documents/{documentId}</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">apisApiIdDocumentsDocumentIdDelete</span>)</div>
+    
+    <div class="method-notes">Delete a document of an API</div>
+
+    
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">apiId (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; **API ID** consisting of the **UUID** of the API. \nThe combination of the provider of the API, name of the API and the version is also accepted as a valid API ID.\nShould be formatted as **provider-name-version**. </div><div class="param">documentId (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; **Document Identifier** </div>
+    </div>  <!-- field-items -->
+    
+
+    
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="heaader">Content-Type</span> request header:
+    <ul>
+    
+      <li><code>application/json</code></li>
+    
+    </ul>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    
+
+    
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="heaader">Content-Type</span> response header.
+    <ul>
+    
+      <li><code>application/json</code></li>
+    
+    </ul>
+    
+
+    <h3 class="field-label">Responses</h3>
+    
+    <h4 class="field-label">200</h4>
+    OK. \nResource successfully deleted.
+    
+    
+    <h4 class="field-label">404</h4>
+    Not Found. \nResource to be deleted does not exist.
+    
+    
+    <h4 class="field-label">412</h4>
+    Precondition Failed. \nThe request has not been performed because one of the preconditions is not met.
+    
+    
+  </div> <!-- method -->
+  <hr/>
+  
+  <div class="method"><a name="apisApiIdDocumentsDocumentIdContentGet"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /apis/{apiId}/documents/{documentId}/content</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">apisApiIdDocumentsDocumentIdContentGet</span>)</div>
+    
+    <div class="method-notes">Downloads a FILE type document/get the inline content or source url of a certain document.</div>
+
+    
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">apiId (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; **API ID** consisting of the **UUID** of the API. \nThe combination of the provider of the API, name of the API and the version is also accepted as a valid API ID.\nShould be formatted as **provider-name-version**. </div><div class="param">documentId (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; **Document Identifier** </div>
+    </div>  <!-- field-items -->
+    
+
+    
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="heaader">Content-Type</span> request header:
+    <ul>
+    
+      <li><code>application/json</code></li>
+    
+    </ul>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    
+
+    
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="heaader">Content-Type</span> response header.
+    <ul>
+    
+      <li><code>application/json</code></li>
+    
+    </ul>
+    
+
+    <h3 class="field-label">Responses</h3>
+    
+    <h4 class="field-label">200</h4>
+    OK. \nFile or inline content returned.
+    
+    
+    <h4 class="field-label">303</h4>
+    See Other.\nSource can be retrived from the URL specified at the Location header.
+    
+    
+    <h4 class="field-label">304</h4>
+    Not Modified. \nEmpty body because the client has already the latest version of the requested resource.
+    
+    
+    <h4 class="field-label">404</h4>
+    Not Found. \nRequested Document does not exist.
+    
+    
+    <h4 class="field-label">406</h4>
+    Not Acceptable. \nThe requested media type is not supported
+    
+    
+  </div> <!-- method -->
+  <hr/>
+  
+  <div class="method"><a name="apisApiIdDocumentsDocumentIdContentPost"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /apis/{apiId}/documents/{documentId}/content</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">apisApiIdDocumentsDocumentIdContentPost</span>)</div>
+    
+    <div class="method-notes">Upload a file to a document or add inline content to the document.\n\nDocument&#39;s source type should be **FILE** in order to upload a file to the document using **file** parameter.\nDocument&#39;s source type should be **INLINE** in order to add inline content to the document using **inlineContent** parameter.\n\nOnly one of **file** or **inlineContent** can be specified at one time.</div>
+
+    
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">apiId (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; **API ID** consisting of the **UUID** of the API. \nThe combination of the provider of the API, name of the API and the version is also accepted as a valid API ID.\nShould be formatted as **provider-name-version**. </div><div class="param">documentId (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; **Document Identifier** </div>
+    </div>  <!-- field-items -->
+    
+
+    
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="heaader">Content-Type</span> request header:
+    <ul>
+    
+      <li><code>multipart/form-data</code></li>
+    
+    </ul>
+    
+
+    
+
+    
+
+    
+
+    
+    <h3 class="field-label">Form parameters</h3>
+    <div class="field-items">
+      <div class="param">file (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Form Parameter</span> &mdash; Document to upload </div><div class="param">inlineContent (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Form Parameter</span> &mdash; Inline content of the document </div>
+    </div>  <!-- field-items -->
+    
+
+    
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#Document">Document</a>
+      
+    </div>
+    
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    
+
+    
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="heaader">Content-Type</span> response header.
+    <ul>
+    
+      <li><code>application/json</code></li>
+    
+    </ul>
+    
+
+    <h3 class="field-label">Responses</h3>
+    
+    <h4 class="field-label">200</h4>
+    OK. \nDocument updated
+    
+    
+    <h4 class="field-label">400</h4>
+    Bad Request. \nInvalid request or validation error.
+    
+    
+    <h4 class="field-label">404</h4>
+    Not Found. \nThe resource to be updated does not exist.
+    
+    
+    <h4 class="field-label">412</h4>
+    Precondition Failed. \nThe request has not been performed because one of the preconditions is not met.
+    
+    
+  </div> <!-- method -->
+  <hr/>
+  
+  <div class="method"><a name="apisApiIdSwaggerGet"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /apis/{apiId}/swagger</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">apisApiIdSwaggerGet</span>)</div>
+    
+    <div class="method-notes">Get the swagger of an API</div>
+
+    
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">apiId (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; **API ID** consisting of the **UUID** of the API. \nThe combination of the provider of the API, name of the API and the version is also accepted as a valid API ID.\nShould be formatted as **provider-name-version**. </div>
+    </div>  <!-- field-items -->
+    
+
+    
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="heaader">Content-Type</span> request header:
+    <ul>
+    
+      <li><code>application/json</code></li>
+    
+    </ul>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    
+
+    
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="heaader">Content-Type</span> response header.
+    <ul>
+    
+      <li><code>application/json</code></li>
+    
+    </ul>
+    
+
+    <h3 class="field-label">Responses</h3>
+    
+    <h4 class="field-label">200</h4>
+    OK. \nRequested swagger document of the API is returned
+    
+    
+    <h4 class="field-label">304</h4>
+    Not Modified. \nEmpty body because the client has already the latest version of the requested resource.
+    
+    
+    <h4 class="field-label">404</h4>
+    Not Found. \nRequested API does not exist.
+    
+    
+    <h4 class="field-label">406</h4>
+    Not Acceptable. \nThe requested media type is not supported
+    
+    
+  </div> <!-- method -->
+  <hr/>
+  
+  <div class="method"><a name="apisApiIdSwaggerPut"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="put"><code class="huge"><span class="http-method">put</span> /apis/{apiId}/swagger</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">apisApiIdSwaggerPut</span>)</div>
+    
+    <div class="method-notes">Update an existing swagger definition of an API</div>
+
+    
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">apiId (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; **API ID** consisting of the **UUID** of the API. \nThe combination of the provider of the API, name of the API and the version is also accepted as a valid API ID.\nShould be formatted as **provider-name-version**. </div>
+    </div>  <!-- field-items -->
+    
+
+    
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="heaader">Content-Type</span> request header:
+    <ul>
+    
+      <li><code>multipart/form-data</code></li>
+    
+    </ul>
+    
+
+    
+
+    
+
+    
+
+    
+    <h3 class="field-label">Form parameters</h3>
+    <div class="field-items">
+      <div class="param">apiDefinition (required)</div>
+
+      <div class="param-desc"><span class="param-type">Form Parameter</span> &mdash; Swagger definition of the API </div>
+    </div>  <!-- field-items -->
+    
+
+    
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    
+
+    
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="heaader">Content-Type</span> response header.
+    <ul>
+    
+      <li><code>application/json</code></li>
+    
+    </ul>
+    
+
+    <h3 class="field-label">Responses</h3>
+    
+    <h4 class="field-label">200</h4>
+    OK. \nSuccessful response with updated Swagger definition
+    
+    
+    <h4 class="field-label">400</h4>
+    Bad Request. \nInvalid request or validation error
+    
+    
+    <h4 class="field-label">403</h4>
+    Forbidden. \nThe request must be conditional but no condition has been specified.
+    
+    
+    <h4 class="field-label">404</h4>
+    Not Found. \nThe resource to be updated does not exist.
+    
+    
+    <h4 class="field-label">412</h4>
+    Precondition Failed. \nThe request has not been performed because one of the preconditions is not met.
+    
+    
+  </div> <!-- method -->
+  <hr/>
+  
+  <div class="method"><a name="applicationsApplicationIdGet"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /applications/{applicationId}</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">applicationsApplicationIdGet</span>)</div>
+    
+    <div class="method-notes">Get application details</div>
+
+    
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">applicationId (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; **Application Identifier** consisting of the UUID of the Application. </div>
+    </div>  <!-- field-items -->
+    
+
+    
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="heaader">Content-Type</span> request header:
+    <ul>
+    
+      <li><code>application/json</code></li>
+    
+    </ul>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#Application">Application</a>
+      
+    </div>
+    
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    
+
+    
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="heaader">Content-Type</span> response header.
+    <ul>
+    
+      <li><code>application/json</code></li>
+    
+    </ul>
+    
+
+    <h3 class="field-label">Responses</h3>
+    
+    <h4 class="field-label">200</h4>
+    OK. \nApplication returned.
+    
+    
+    <h4 class="field-label">304</h4>
+    Not Modified. \nEmpty body because the client has already the latest version of the requested resource.
+    
+    
+    <h4 class="field-label">404</h4>
+    Not Found.\nRequested application does not exist.
+    
+    
+    <h4 class="field-label">406</h4>
+    Not Acceptable. \nThe requested media type is not supported
+    
+    
+  </div> <!-- method -->
+  <hr/>
+  
+  <div class="method"><a name="environmentsGet"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /environments</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">environmentsGet</span>)</div>
+    
+    <div class="method-notes">Get a list of gateway environments configured previously.</div>
+
+    
+
+    
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="heaader">Content-Type</span> request header:
+    <ul>
+    
+      <li><code>application/json</code></li>
+    
+    </ul>
+    
+
+    
+
+    
+
+    
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">apiId (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Will return environment list for the provided API. </div>
+    </div>  <!-- field-items -->
+    
+
+    
+
+    
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#EnvironmentList">EnvironmentList</a>
+      
+    </div>
+    
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    
+
+    
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="heaader">Content-Type</span> response header.
+    <ul>
+    
+      <li><code>application/json</code></li>
+    
+    </ul>
+    
+
+    <h3 class="field-label">Responses</h3>
+    
+    <h4 class="field-label">200</h4>
+    OK. \nEnvironment list is returned.
+    
+    
+    <h4 class="field-label">304</h4>
+    Not Modified. \nEmpty body because the client has already the latest version of the requested resource.
+    
+    
+    <h4 class="field-label">404</h4>
+    Not Found. \nRequested API does not exist.
+    
+    
+  </div> <!-- method -->
+  <hr/>
+  
+  <div class="method"><a name="subscriptionsGet"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /subscriptions</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">subscriptionsGet</span>)</div>
+    
+    <div class="method-notes">Get subscription list.\nThe API Identifier and corresponding Application Identifier\nthe subscriptions of which are to be returned are passed as parameters.</div>
+
+    
+
+    
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="heaader">Content-Type</span> request header:
+    <ul>
+    
+      <li><code>application/json</code></li>
+    
+    </ul>
+    
+
+    
+
+    
+
+    
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">apiId (required)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; **API ID** consisting of the **UUID** of the API. \nThe combination of the provider of the API, name of the API and the version is also accepted as a valid API I.\nShould be formatted as **provider-name-version**. </div><div class="param">limit (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Maximum size of resource array to return. default: 25</div><div class="param">offset (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Starting point within the complete list of items qualified. default: 0</div>
+    </div>  <!-- field-items -->
+    
+
+    
+
+    
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#SubscriptionList">SubscriptionList</a>
+      
+    </div>
+    
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    
+
+    
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="heaader">Content-Type</span> response header.
+    <ul>
+    
+      <li><code>application/json</code></li>
+    
+    </ul>
+    
+
+    <h3 class="field-label">Responses</h3>
+    
+    <h4 class="field-label">200</h4>
+    OK. \nSubscription list returned.
+    
+    
+    <h4 class="field-label">304</h4>
+    Not Modified. \nEmpty body because the client has already the latest version of the requested resource.
+    
+    
+    <h4 class="field-label">406</h4>
+    Not Acceptable. The requested media type is not supported
+    
+    
+  </div> <!-- method -->
+  <hr/>
+  
+  <div class="method"><a name="subscriptionsBlockSubscriptionPost"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /subscriptions/block-subscription</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">subscriptionsBlockSubscriptionPost</span>)</div>
+    
+    <div class="method-notes">Block a subscription.</div>
+
+    
+
+    
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="heaader">Content-Type</span> request header:
+    <ul>
+    
+      <li><code>application/json</code></li>
+    
+    </ul>
+    
+
+    
+
+    
+
+    
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">subscriptionId (required)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Subscription Id </div><div class="param">blockState (required)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Subscription block state. </div>
+    </div>  <!-- field-items -->
+    
+
+    
+
+    
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    
+
+    
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="heaader">Content-Type</span> response header.
+    <ul>
+    
+      <li><code>application/json</code></li>
+    
+    </ul>
+    
+
+    <h3 class="field-label">Responses</h3>
+    
+    <h4 class="field-label">200</h4>
+    OK. \nSubscription was blocked successfully.
+    
+    
+    <h4 class="field-label">400</h4>
+    Bad Request. \nInvalid request or validation error
+    
+    
+    <h4 class="field-label">404</h4>
+    Not Found. \nRequested subscription does not exist.
+    
+    
+    <h4 class="field-label">412</h4>
+    Precondition Failed. \nThe request has not been performed because one of the preconditions is not met.
+    
+    
+  </div> <!-- method -->
+  <hr/>
+  
+  <div class="method"><a name="subscriptionsUnblockSubscriptionPost"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /subscriptions/unblock-subscription</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">subscriptionsUnblockSubscriptionPost</span>)</div>
+    
+    <div class="method-notes">Unblock a subscription.</div>
+
+    
+
+    
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="heaader">Content-Type</span> request header:
+    <ul>
+    
+      <li><code>application/json</code></li>
+    
+    </ul>
+    
+
+    
+
+    
+
+    
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">subscriptionId (required)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Subscription Id </div>
+    </div>  <!-- field-items -->
+    
+
+    
+
+    
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    
+
+    
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="heaader">Content-Type</span> response header.
+    <ul>
+    
+      <li><code>application/json</code></li>
+    
+    </ul>
+    
+
+    <h3 class="field-label">Responses</h3>
+    
+    <h4 class="field-label">200</h4>
+    OK. \nSubscription was unblocked successfully.
+    
+    
+    <h4 class="field-label">400</h4>
+    Bad Request. \nInvalid request or validation error
+    
+    
+    <h4 class="field-label">404</h4>
+    Not Found. \nRequested subscription does not exist.
+    
+    
+    <h4 class="field-label">412</h4>
+    Precondition Failed. \nThe request has not been performed because one of the preconditions is not met.
+    
+    
+  </div> <!-- method -->
+  <hr/>
+  
+  <div class="method"><a name="subscriptionsSubscriptionIdGet"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /subscriptions/{subscriptionId}</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">subscriptionsSubscriptionIdGet</span>)</div>
+    
+    <div class="method-notes">Get subscription details</div>
+
+    
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">subscriptionId (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Subscription Id </div>
+    </div>  <!-- field-items -->
+    
+
+    
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="heaader">Content-Type</span> request header:
+    <ul>
+    
+      <li><code>application/json</code></li>
+    
+    </ul>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#Subscription">Subscription</a>
+      
+    </div>
+    
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    
+
+    
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="heaader">Content-Type</span> response header.
+    <ul>
+    
+      <li><code>application/json</code></li>
+    
+    </ul>
+    
+
+    <h3 class="field-label">Responses</h3>
+    
+    <h4 class="field-label">200</h4>
+    OK. \nSubscription returned
+    
+    
+    <h4 class="field-label">304</h4>
+    Not Modified. \nEmpty body because the client has already the latest version of the requested resource.
+    
+    
+    <h4 class="field-label">404</h4>
+    Not Found. \nRequested Subscription does not exist.
+    
+    
+  </div> <!-- method -->
+  <hr/>
+  
+  <div class="method"><a name="tiersUpdatePermissionPost"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /tiers/update-permission</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">tiersUpdatePermissionPost</span>)</div>
+    
+    <div class="method-notes">Update tier permission</div>
+
+    
+
+    
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="heaader">Content-Type</span> request header:
+    <ul>
+    
+      <li><code>application/json</code></li>
+    
+    </ul>
+    
+
+    
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">permissions (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+    </div>  <!-- field-items -->
+    
+
+    
+
+    
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">tierName (required)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Name of the tier </div><div class="param">tierLevel (required)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; List API or Application or Resource type tiers. </div>
+    </div>  <!-- field-items -->
+    
+
+    
+
+    
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      array[<a href="#Tier">Tier</a>]
+      
+    </div>
+    
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    
+
+    
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="heaader">Content-Type</span> response header.
+    <ul>
+    
+      <li><code>application/json</code></li>
+    
+    </ul>
+    
+
+    <h3 class="field-label">Responses</h3>
+    
+    <h4 class="field-label">200</h4>
+    OK. \nSuccessfully updated tier permissions
+    
+    
+    <h4 class="field-label">400</h4>
+    Bad Request. \nInvalid request or validation error.
+    
+    
+    <h4 class="field-label">403</h4>
+    Forbidden. \nThe request must be conditional but no condition has been specified.
+    
+    
+    <h4 class="field-label">404</h4>
+    Not Found. \nRequested tier does not exist.
+    
+    
+    <h4 class="field-label">412</h4>
+    Precondition Failed. \nThe request has not been performed because one of the preconditions is not met.
+    
+    
+  </div> <!-- method -->
+  <hr/>
+  
+  <div class="method"><a name="tiersTierLevelGet"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /tiers/{tierLevel}</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">tiersTierLevelGet</span>)</div>
+    
+    <div class="method-notes">Get available tiers</div>
+
+    
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">tierLevel (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; List API or Application or Resource type tiers. </div>
+    </div>  <!-- field-items -->
+    
+
+    
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="heaader">Content-Type</span> request header:
+    <ul>
+    
+      <li><code>application/json</code></li>
+    
+    </ul>
+    
+
+    
+
+    
+
+    
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">limit (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Maximum size of resource array to return. default: 25</div><div class="param">offset (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Starting point within the complete list of items qualified. default: 0</div>
+    </div>  <!-- field-items -->
+    
+
+    
+
+    
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#TierList">TierList</a>
+      
+    </div>
+    
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    
+
+    
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="heaader">Content-Type</span> response header.
+    <ul>
+    
+      <li><code>application/json</code></li>
+    
+    </ul>
+    
+
+    <h3 class="field-label">Responses</h3>
+    
+    <h4 class="field-label">200</h4>
+    OK. \nList of tiers returned.
+    
+    
+    <h4 class="field-label">304</h4>
+    Not Modified. \nEmpty body because the client has already the latest version of the requested resource.
+    
+    
+    <h4 class="field-label">406</h4>
+    Not Acceptable. \nThe requested media type is not supported
+    
+    
+  </div> <!-- method -->
+  <hr/>
+  
+  <div class="method"><a name="tiersTierLevelPost"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /tiers/{tierLevel}</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">tiersTierLevelPost</span>)</div>
+    
+    <div class="method-notes">Add a new tier</div>
+
+    
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">tierLevel (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; List API or Application or Resource type tiers. </div>
+    </div>  <!-- field-items -->
+    
+
+    
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="heaader">Content-Type</span> request header:
+    <ul>
+    
+      <li><code>application/json</code></li>
+    
+    </ul>
+    
+
+    
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">body (required)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash; Tier object that should to be added </div>
+    </div>  <!-- field-items -->
+    
+
+    
+
+    
+
+    
+
+    
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#Tier">Tier</a>
+      
+    </div>
+    
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    
+
+    
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="heaader">Content-Type</span> response header.
+    <ul>
+    
+      <li><code>application/json</code></li>
+    
+    </ul>
+    
+
+    <h3 class="field-label">Responses</h3>
+    
+    <h4 class="field-label">201</h4>
+    Created. \nSuccessful response with the newly created object as entity in the body. \nLocation header contains URL of newly created entity.
+    
+    
+    <h4 class="field-label">400</h4>
+    Bad Request. \nInvalid request or validation error
+    
+    
+    <h4 class="field-label">415</h4>
+    Unsupported media type. \nThe entity of the request was in a not supported format.
+    
+    
+  </div> <!-- method -->
+  <hr/>
+  
+  <div class="method"><a name="tiersTierLevelTierNameGet"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /tiers/{tierLevel}/{tierName}</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">tiersTierLevelTierNameGet</span>)</div>
+    
+    <div class="method-notes">Get tier details</div>
+
+    
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">tierName (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Tier name </div><div class="param">tierLevel (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; List API or Application or Resource type tiers. </div>
+    </div>  <!-- field-items -->
+    
+
+    
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="heaader">Content-Type</span> request header:
+    <ul>
+    
+      <li><code>application/json</code></li>
+    
+    </ul>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#Tier">Tier</a>
+      
+    </div>
+    
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    
+
+    
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="heaader">Content-Type</span> response header.
+    <ul>
+    
+      <li><code>application/json</code></li>
+    
+    </ul>
+    
+
+    <h3 class="field-label">Responses</h3>
+    
+    <h4 class="field-label">200</h4>
+    OK. \nTier returned
+    
+    
+    <h4 class="field-label">304</h4>
+    Not Modified. \nEmpty body because the client has already the latest version of the requested resource.
+    
+    
+    <h4 class="field-label">404</h4>
+    Not Found. \nRequested Tier does not exist.
+    
+    
+    <h4 class="field-label">406</h4>
+    Not Acceptable. \nThe requested media type is not supported.
+    
+    
+  </div> <!-- method -->
+  <hr/>
+  
+  <div class="method"><a name="tiersTierLevelTierNamePut"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="put"><code class="huge"><span class="http-method">put</span> /tiers/{tierLevel}/{tierName}</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">tiersTierLevelTierNamePut</span>)</div>
+    
+    <div class="method-notes">Update tier details</div>
+
+    
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">tierName (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Tier name </div><div class="param">tierLevel (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; List API or Application or Resource type tiers. </div>
+    </div>  <!-- field-items -->
+    
+
+    
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="heaader">Content-Type</span> request header:
+    <ul>
+    
+      <li><code>application/json</code></li>
+    
+    </ul>
+    
+
+    
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">body (required)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash; Tier object that needs to be modified </div>
+    </div>  <!-- field-items -->
+    
+
+    
+
+    
+
+    
+
+    
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#Tier">Tier</a>
+      
+    </div>
+    
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    
+
+    
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="heaader">Content-Type</span> response header.
+    <ul>
+    
+      <li><code>application/json</code></li>
+    
+    </ul>
+    
+
+    <h3 class="field-label">Responses</h3>
+    
+    <h4 class="field-label">200</h4>
+    OK. \nSubscription updated.
+    
+    
+    <h4 class="field-label">400</h4>
+    Bad Request. \nInvalid request or validation error.
+    
+    
+    <h4 class="field-label">404</h4>
+    Not Found. \nThe resource to be updated does not exist.
+    
+    
+    <h4 class="field-label">412</h4>
+    Precondition Failed. \nThe request has not been performed because one of the preconditions is not met.
+    
+    
+  </div> <!-- method -->
+  <hr/>
+  
+  <div class="method"><a name="tiersTierLevelTierNameDelete"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="delete"><code class="huge"><span class="http-method">delete</span> /tiers/{tierLevel}/{tierName}</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">tiersTierLevelTierNameDelete</span>)</div>
+    
+    <div class="method-notes">Remove a tier</div>
+
+    
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">tierName (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Tier name </div><div class="param">tierLevel (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; List API or Application or Resource type tiers. </div>
+    </div>  <!-- field-items -->
+    
+
+    
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="heaader">Content-Type</span> request header:
+    <ul>
+    
+      <li><code>application/json</code></li>
+    
+    </ul>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    
+
+    
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="heaader">Content-Type</span> response header.
+    <ul>
+    
+      <li><code>application/json</code></li>
+    
+    </ul>
+    
+
+    <h3 class="field-label">Responses</h3>
+    
+    <h4 class="field-label">200</h4>
+    OK. \nResource successfully deleted.
+    
+    
+    <h4 class="field-label">404</h4>
+    Not Found. \nResource to be deleted does not exist.
+    
+    
+    <h4 class="field-label">412</h4>
+    Precondition Failed. \nThe request has not been performed because one of the preconditions is not met.
+    
+    
+  </div> <!-- method -->
+  <hr/>
+  
+  
+  
+  
+
+  <div class="up"><a href="#__Models">Up</a></div>
+  <h2><a name="__Models">Models</a></h2>
+  [ Jump to <a href="#__Methods">Methods</a> ]
+
+  <h2>Table of Contents</h2>
+  <ol>
+  
+  
+    <li><a href="#APIList"><code>APIList</code></a></li>
+  
+  
+  
+    <li><a href="#APIInfo"><code>APIInfo</code></a></li>
+  
+  
+  
+    <li><a href="#API"><code>API</code></a></li>
+  
+  
+  
+    <li><a href="#Application"><code>Application</code></a></li>
+  
+  
+  
+    <li><a href="#DocumentList"><code>DocumentList</code></a></li>
+  
+  
+  
+    <li><a href="#Document"><code>Document</code></a></li>
+  
+  
+  
+    <li><a href="#TierList"><code>TierList</code></a></li>
+  
+  
+  
+    <li><a href="#Tier"><code>Tier</code></a></li>
+  
+  
+  
+    <li><a href="#TierPermission"><code>TierPermission</code></a></li>
+  
+  
+  
+    <li><a href="#SubscriptionList"><code>SubscriptionList</code></a></li>
+  
+  
+  
+    <li><a href="#Subscription"><code>Subscription</code></a></li>
+  
+  
+  
+    <li><a href="#Sequence"><code>Sequence</code></a></li>
+  
+  
+  
+    <li><a href="#Error"><code>Error</code></a></li>
+  
+  
+  
+    <li><a href="#ErrorListItem"><code>ErrorListItem</code></a></li>
+  
+  
+  
+    <li><a href="#Environment"><code>Environment</code></a></li>
+  
+  
+  
+    <li><a href="#EnvironmentList"><code>EnvironmentList</code></a></li>
+  
+  
+  
+    <li><a href="#EnvironmentEndpoints"><code>EnvironmentEndpoints</code></a></li>
+  
+  
+  
+    <li><a href="#API_businessInformation"><code>API_businessInformation</code></a></li>
+  
+  
+  </ol>
+
+  
+  
+  <div class="model">
+    <h3 class="field-label"><a name="APIList">APIList</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class="field-items">
+      <div class="param">count </div><div class="param-desc"><span class="param-type">Integer</span> Number of APIs returned.</div>
+      
+      <div class="param">next </div><div class="param-desc"><span class="param-type">String</span> Link to the next subset of resources qualified. \nEmpty if no more resources are to be returned.</div>
+      
+      <div class="param">previous </div><div class="param-desc"><span class="param-type">String</span> Link to the previous subset of resources qualified. \nEmpty if current subset is the first subset returned.</div>
+      
+      <div class="param">list </div><div class="param-desc"><span class="param-type">array[APIInfo]</span> </div>
+      
+      
+    </div>  <!-- field-items -->
+  </div>
+  
+  
+  
+  <div class="model">
+    <h3 class="field-label"><a name="APIInfo">APIInfo</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class="field-items">
+      <div class="param">id </div><div class="param-desc"><span class="param-type">String</span> </div>
+      
+      <div class="param">name </div><div class="param-desc"><span class="param-type">String</span> </div>
+      
+      <div class="param">description </div><div class="param-desc"><span class="param-type">String</span> </div>
+      
+      <div class="param">context </div><div class="param-desc"><span class="param-type">String</span> </div>
+      
+      <div class="param">version </div><div class="param-desc"><span class="param-type">String</span> </div>
+      
+      <div class="param">provider </div><div class="param-desc"><span class="param-type">String</span> If the provider value is not given, the user invoking the API will be used as the provider.</div>
+      
+      <div class="param">status </div><div class="param-desc"><span class="param-type">String</span> </div>
+      
+      
+    </div>  <!-- field-items -->
+  </div>
+  
+  
+  
+  <div class="model">
+    <h3 class="field-label"><a name="API">API</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class="field-items">
+      <div class="param">id </div><div class="param-desc"><span class="param-type">String</span> UUID of the api registry artifact</div>
+      
+      <div class="param">name </div><div class="param-desc"><span class="param-type">String</span> </div>
+      
+      <div class="param">description </div><div class="param-desc"><span class="param-type">String</span> </div>
+      
+      <div class="param">context </div><div class="param-desc"><span class="param-type">String</span> </div>
+      
+      <div class="param">version </div><div class="param-desc"><span class="param-type">String</span> </div>
+      
+      <div class="param">provider </div><div class="param-desc"><span class="param-type">String</span> If the provider value is not given user invoking the api will be used as the provider.</div>
+      
+      <div class="param">apiDefinition </div><div class="param-desc"><span class="param-type">String</span> Swagger definition of the API which contains details about URI templates and scopes</div>
+      
+      <div class="param">status </div><div class="param-desc"><span class="param-type">String</span> </div>
+      
+      <div class="param">responseCaching </div><div class="param-desc"><span class="param-type">String</span> </div>
+      
+      <div class="param">cacheTimeout </div><div class="param-desc"><span class="param-type">Integer</span> </div>
+      
+      <div class="param">destinationStatsEnabled </div><div class="param-desc"><span class="param-type">String</span> </div>
+      
+      <div class="param">isDefaultVersion </div><div class="param-desc"><span class="param-type">Boolean</span> </div>
+      
+      <div class="param">transport </div><div class="param-desc"><span class="param-type">array[String]</span> Supported transports for the API (http and/or https).</div>
+      
+      <div class="param">tags </div><div class="param-desc"><span class="param-type">array[String]</span> </div>
+      
+      <div class="param">tiers </div><div class="param-desc"><span class="param-type">array[String]</span> </div>
+      
+      <div class="param">thumbnailUrl </div><div class="param-desc"><span class="param-type">String</span> </div>
+      
+      <div class="param">visibility </div><div class="param-desc"><span class="param-type">String</span> </div>
+      
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">PUBLIC</div><div class="param-enum">PRIVATE</div><div class="param-enum">RESTRICTED</div><div class="param-enum">CONTROLLED</div>
+      
+      <div class="param">visibleRoles </div><div class="param-desc"><span class="param-type">array[String]</span> </div>
+      
+      <div class="param">visibleTenants </div><div class="param-desc"><span class="param-type">array[String]</span> </div>
+      
+      <div class="param">endpointConfig </div><div class="param-desc"><span class="param-type">String</span> </div>
+      
+      <div class="param">gatewayEnvironments </div><div class="param-desc"><span class="param-type">String</span> Comma separated list of gateway environments.</div>
+      
+      <div class="param">sequences </div><div class="param-desc"><span class="param-type">array[Sequence]</span> </div>
+      
+      <div class="param">subscriptionAvailability </div><div class="param-desc"><span class="param-type">String</span> </div>
+      
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">current_tenant</div><div class="param-enum">all_tenants</div><div class="param-enum">specific_tenants</div>
+      
+      <div class="param">subscriptionAvailableTenants </div><div class="param-desc"><span class="param-type">array[String]</span> </div>
+      
+      <div class="param">businessInformation </div><div class="param-desc"><span class="param-type">API_businessInformation</span> </div>
+      
+      
+    </div>  <!-- field-items -->
+  </div>
+  
+  
+  
+  <div class="model">
+    <h3 class="field-label"><a name="Application">Application</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class="field-items">
+      <div class="param">applicationId </div><div class="param-desc"><span class="param-type">String</span> </div>
+      
+      <div class="param">name </div><div class="param-desc"><span class="param-type">String</span> </div>
+      
+      <div class="param">subscriber </div><div class="param-desc"><span class="param-type">String</span> </div>
+      
+      <div class="param">throttlingTier </div><div class="param-desc"><span class="param-type">String</span> </div>
+      
+      <div class="param">description </div><div class="param-desc"><span class="param-type">String</span> </div>
+      
+      <div class="param">groupId </div><div class="param-desc"><span class="param-type">String</span> </div>
+      
+      
+    </div>  <!-- field-items -->
+  </div>
+  
+  
+  
+  <div class="model">
+    <h3 class="field-label"><a name="DocumentList">DocumentList</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class="field-items">
+      <div class="param">count </div><div class="param-desc"><span class="param-type">Integer</span> Number of Documents returned.</div>
+      
+      <div class="param">next </div><div class="param-desc"><span class="param-type">String</span> Link to the next subset of resources qualified. \nEmpty if no more resources are to be returned.</div>
+      
+      <div class="param">previous </div><div class="param-desc"><span class="param-type">String</span> Link to the previous subset of resources qualified. \nEmpty if current subset is the first subset returned.</div>
+      
+      <div class="param">list </div><div class="param-desc"><span class="param-type">array[Document]</span> </div>
+      
+      
+    </div>  <!-- field-items -->
+  </div>
+  
+  
+  
+  <div class="model">
+    <h3 class="field-label"><a name="Document">Document</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class="field-items">
+      <div class="param">documentId </div><div class="param-desc"><span class="param-type">String</span> </div>
+      
+      <div class="param">name </div><div class="param-desc"><span class="param-type">String</span> </div>
+      
+      <div class="param">type </div><div class="param-desc"><span class="param-type">String</span> </div>
+      
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">HOWTO</div><div class="param-enum">SAMPLES</div><div class="param-enum">PUBLIC_FORUM</div><div class="param-enum">SUPPORT_FORUM</div><div class="param-enum">API_MESSAGE_FORMAT</div><div class="param-enum">SWAGGER_DOC</div><div class="param-enum">OTHER</div>
+      
+      <div class="param">summary </div><div class="param-desc"><span class="param-type">String</span> </div>
+      
+      <div class="param">sourceType </div><div class="param-desc"><span class="param-type">String</span> </div>
+      
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">INLINE</div><div class="param-enum">URL</div><div class="param-enum">FILE</div>
+      
+      <div class="param">sourceUrl </div><div class="param-desc"><span class="param-type">String</span> </div>
+      
+      <div class="param">otherTypeName </div><div class="param-desc"><span class="param-type">String</span> </div>
+      
+      <div class="param">visibility </div><div class="param-desc"><span class="param-type">String</span> </div>
+      
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">OWNER_ONLY</div><div class="param-enum">PRIVATE</div><div class="param-enum">API_LEVEL</div>
+      
+      
+    </div>  <!-- field-items -->
+  </div>
+  
+  
+  
+  <div class="model">
+    <h3 class="field-label"><a name="TierList">TierList</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class="field-items">
+      <div class="param">count </div><div class="param-desc"><span class="param-type">Integer</span> Number of Tiers returned.</div>
+      
+      <div class="param">next </div><div class="param-desc"><span class="param-type">String</span> Link to the next subset of resources qualified. \nEmpty if no more resources are to be returned.</div>
+      
+      <div class="param">previous </div><div class="param-desc"><span class="param-type">String</span> Link to the previous subset of resources qualified. \nEmpty if current subset is the first subset returned.</div>
+      
+      <div class="param">list </div><div class="param-desc"><span class="param-type">array[Tier]</span> </div>
+      
+      
+    </div>  <!-- field-items -->
+  </div>
+  
+  
+  
+  <div class="model">
+    <h3 class="field-label"><a name="Tier">Tier</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class="field-items">
+      <div class="param">name </div><div class="param-desc"><span class="param-type">String</span> </div>
+      
+      <div class="param">description </div><div class="param-desc"><span class="param-type">String</span> </div>
+      
+      <div class="param">tierLevel </div><div class="param-desc"><span class="param-type">String</span> </div>
+      
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">api</div><div class="param-enum">application</div><div class="param-enum">resource</div>
+      
+      <div class="param">attributes </div><div class="param-desc"><span class="param-type">map[String, String]</span> Custom attributes added to the tier policy</div>
+      
+      <div class="param">requestCount </div><div class="param-desc"><span class="param-type">Long</span> Maximum number of requests which can be sent within a provided unit time</div>
+      
+      <div class="param">unitTime </div><div class="param-desc"><span class="param-type">Long</span> </div>
+      
+      <div class="param">tierPlan </div><div class="param-desc"><span class="param-type">String</span> This attribute declares whether this tier is available under commercial or free</div>
+      
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">FREE</div><div class="param-enum">COMMERCIAL</div>
+      
+      <div class="param">stopOnQuotaReach </div><div class="param-desc"><span class="param-type">Boolean</span> By making this attribute to false, you are capabale of sending requests \neven if the request count exceeded within a unit time</div>
+      
+      
+    </div>  <!-- field-items -->
+  </div>
+  
+  
+  
+  <div class="model">
+    <h3 class="field-label"><a name="TierPermission">TierPermission</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class="field-items">
+      <div class="param">permissionType </div><div class="param-desc"><span class="param-type">String</span> </div>
+      
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">allow</div><div class="param-enum">deny</div>
+      
+      <div class="param">roles </div><div class="param-desc"><span class="param-type">array[String]</span> </div>
+      
+      
+    </div>  <!-- field-items -->
+  </div>
+  
+  
+  
+  <div class="model">
+    <h3 class="field-label"><a name="SubscriptionList">SubscriptionList</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class="field-items">
+      <div class="param">count </div><div class="param-desc"><span class="param-type">Integer</span> Number of Subscriptions returned.</div>
+      
+      <div class="param">next </div><div class="param-desc"><span class="param-type">String</span> Link to the next subset of resources qualified. \nEmpty if no more resources are to be returned.</div>
+      
+      <div class="param">previous </div><div class="param-desc"><span class="param-type">String</span> Link to the previous subset of resources qualified. \nEmpty if current subset is the first subset returned.</div>
+      
+      <div class="param">list </div><div class="param-desc"><span class="param-type">array[Subscription]</span> </div>
+      
+      
+    </div>  <!-- field-items -->
+  </div>
+  
+  
+  
+  <div class="model">
+    <h3 class="field-label"><a name="Subscription">Subscription</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class="field-items">
+      <div class="param">subscriptionId </div><div class="param-desc"><span class="param-type">String</span> </div>
+      
+      <div class="param">applicationId </div><div class="param-desc"><span class="param-type">String</span> </div>
+      
+      <div class="param">apiIdentifier </div><div class="param-desc"><span class="param-type">String</span> </div>
+      
+      <div class="param">tier </div><div class="param-desc"><span class="param-type">String</span> </div>
+      
+      <div class="param">status </div><div class="param-desc"><span class="param-type">String</span> </div>
+      
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">BLOCKED</div><div class="param-enum">PROD_ONLY_BLOCKED</div><div class="param-enum">UNBLOCKED</div><div class="param-enum">ON_HOLD</div><div class="param-enum">REJECTED</div>
+      
+      
+    </div>  <!-- field-items -->
+  </div>
+  
+  
+  
+  <div class="model">
+    <h3 class="field-label"><a name="Sequence">Sequence</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class="field-items">
+      <div class="param">name </div><div class="param-desc"><span class="param-type">String</span> </div>
+      
+      <div class="param">config </div><div class="param-desc"><span class="param-type">String</span> </div>
+      
+      <div class="param">type </div><div class="param-desc"><span class="param-type">String</span> </div>
+      
+      
+    </div>  <!-- field-items -->
+  </div>
+  
+  
+  
+  <div class="model">
+    <h3 class="field-label"><a name="Error">Error</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class="field-items">
+      <div class="param">code </div><div class="param-desc"><span class="param-type">Long</span> </div>
+      
+      <div class="param">message </div><div class="param-desc"><span class="param-type">String</span> Error message.</div>
+      
+      <div class="param">description </div><div class="param-desc"><span class="param-type">String</span> A detail description about the error message.</div>
+      
+      <div class="param">moreInfo </div><div class="param-desc"><span class="param-type">String</span> Preferably an url with more details about the error.</div>
+      
+      <div class="param">error </div><div class="param-desc"><span class="param-type">array[ErrorListItem]</span> If there are more than one error list them out. \nFor example, list out validation errors by each field.</div>
+      
+      
+    </div>  <!-- field-items -->
+  </div>
+  
+  
+  
+  <div class="model">
+    <h3 class="field-label"><a name="ErrorListItem">ErrorListItem</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class="field-items">
+      <div class="param">code </div><div class="param-desc"><span class="param-type">String</span> </div>
+      
+      <div class="param">message </div><div class="param-desc"><span class="param-type">String</span> Description about individual errors occurred</div>
+      
+      
+    </div>  <!-- field-items -->
+  </div>
+  
+  
+  
+  <div class="model">
+    <h3 class="field-label"><a name="Environment">Environment</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class="field-items">
+      <div class="param">name </div><div class="param-desc"><span class="param-type">String</span> </div>
+      
+      <div class="param">type </div><div class="param-desc"><span class="param-type">String</span> </div>
+      
+      <div class="param">serverUrl </div><div class="param-desc"><span class="param-type">String</span> </div>
+      
+      <div class="param">showInApiConsole </div><div class="param-desc"><span class="param-type">Boolean</span> </div>
+      
+      <div class="param">endpoints </div><div class="param-desc"><span class="param-type">EnvironmentEndpoints</span> </div>
+      
+      
+    </div>  <!-- field-items -->
+  </div>
+  
+  
+  
+  <div class="model">
+    <h3 class="field-label"><a name="EnvironmentList">EnvironmentList</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class="field-items">
+      <div class="param">count </div><div class="param-desc"><span class="param-type">Integer</span> Number of Environments returned.</div>
+      
+      <div class="param">list </div><div class="param-desc"><span class="param-type">array[Environment]</span> </div>
+      
+      
+    </div>  <!-- field-items -->
+  </div>
+  
+  
+  
+  <div class="model">
+    <h3 class="field-label"><a name="EnvironmentEndpoints">EnvironmentEndpoints</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class="field-items">
+      <div class="param">http </div><div class="param-desc"><span class="param-type">String</span> HTTP environment URL</div>
+      
+      <div class="param">https </div><div class="param-desc"><span class="param-type">String</span> HTTPS environment URL</div>
+      
+      
+    </div>  <!-- field-items -->
+  </div>
+  
+  
+  
+  <div class="model">
+    <h3 class="field-label"><a name="API_businessInformation">API_businessInformation</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class="field-items">
+      <div class="param">businessOwnerEmail </div><div class="param-desc"><span class="param-type">String</span> </div>
+      
+      <div class="param">technicalOwnerEmail </div><div class="param-desc"><span class="param-type">String</span> </div>
+      
+      <div class="param">technicalOwner </div><div class="param-desc"><span class="param-type">String</span> </div>
+      
+      <div class="param">businessOwner </div><div class="param-desc"><span class="param-type">String</span> </div>
+      
+      
+    </div>  <!-- field-items -->
+  </div>
+  
+  
+  </body>
+</html>

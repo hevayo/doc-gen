@@ -1,0 +1,99 @@
+    
+
+        <h2>Tier</h2>
+            <table class="table table-striped table-bordered">
+                <colgroup>
+                    <col style="width: 10%;">
+                    <col style="width: 30%;">
+                    <col style="width: 5%;">
+                    <col style="width: 5%;">
+                    <col style="width: 20%;">
+                    <col style="width: 30%;">
+                </colgroup>
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Schema</th>
+                    <th>Required</th>
+                    <th>Default</th>
+                    <th>Example</th>
+                </tr>
+                </thead>
+                <tbody>
+                
+                    <tr>
+                        <td class="parameter"><p>name</p></td>
+                        <td class="parameter"><p></p></td>
+                        <td class="parameter"> <p></p></td>
+                        <td class="parameter"> <p>true</p></td>
+                        <td class="parameter"> <p></p></td>
+                        <td class="parameter"> <p>Platinum</p></td>
+                    </tr>
+                
+                    <tr>
+                        <td class="parameter"><p>description</p></td>
+                        <td class="parameter"><p></p></td>
+                        <td class="parameter"> <p></p></td>
+                        <td class="parameter"> <p></p></td>
+                        <td class="parameter"> <p></p></td>
+                        <td class="parameter"> <p>Allows 50 request(s) per minute.</p></td>
+                    </tr>
+                
+                    <tr>
+                        <td class="parameter"><p>tierLevel</p></td>
+                        <td class="parameter"><p></p></td>
+                        <td class="parameter"> <p></p></td>
+                        <td class="parameter"> <p></p></td>
+                        <td class="parameter"> <p></p></td>
+                        <td class="parameter"> <p>api</p></td>
+                    </tr>
+                
+                    <tr>
+                        <td class="parameter"><p>attributes</p></td>
+                        <td class="parameter"><p>Custom attributes added to the tier policy</p></td>
+                        <td class="parameter"> <p></p></td>
+                        <td class="parameter"> <p></p></td>
+                        <td class="parameter"> <p></p></td>
+                        <td class="parameter"> <p></p></td>
+                    </tr>
+                
+                    <tr>
+                        <td class="parameter"><p>requestCount</p></td>
+                        <td class="parameter"><p>Maximum number of requests which can be sent within a provided unit time</p></td>
+                        <td class="parameter"> <p></p></td>
+                        <td class="parameter"> <p>true</p></td>
+                        <td class="parameter"> <p></p></td>
+                        <td class="parameter"> <p>50</p></td>
+                    </tr>
+                
+                    <tr>
+                        <td class="parameter"><p>unitTime</p></td>
+                        <td class="parameter"><p></p></td>
+                        <td class="parameter"> <p></p></td>
+                        <td class="parameter"> <p>true</p></td>
+                        <td class="parameter"> <p></p></td>
+                        <td class="parameter"> <p>60000</p></td>
+                    </tr>
+                
+                    <tr>
+                        <td class="parameter"><p>tierPlan</p></td>
+                        <td class="parameter"><p>This attribute declares whether this tier is available under commercial or free</p></td>
+                        <td class="parameter"> <p></p></td>
+                        <td class="parameter"> <p>true</p></td>
+                        <td class="parameter"> <p></p></td>
+                        <td class="parameter"> <p>FREE</p></td>
+                    </tr>
+                
+                    <tr>
+                        <td class="parameter"><p>stopOnQuotaReach</p></td>
+                        <td class="parameter"><p>By making this attribute to false, you are capabale of sending requests \neven if the request count exceeded within a unit time</p></td>
+                        <td class="parameter"> <p></p></td>
+                        <td class="parameter"> <p>true</p></td>
+                        <td class="parameter"> <p></p></td>
+                        <td class="parameter"> <p>true</p></td>
+                    </tr>
+                
+                </tbody>
+            </table>
+    

@@ -1,0 +1,114 @@
+<div class="main-content">
+    <h2><a name=""></a></h2>
+
+    
+        
+            <hr>
+            <h3><a name="environmentsGet"></a>Get gateway environments</h3>
+
+            <p></p>
+            <p>Get a list of gateway environments configured previously.</p>
+            <h4 class="section">URL</h4>
+            <code>https://apis.wso2.com/api/am/publisher/v0.9/environments</code>
+            <h4 class="section">HTTP Method</h4>
+            <code>GET</code>
+            <h4 class="section">Parameters</h4>
+            <table class="table table-striped table-bordered">
+                <tr>
+                    <th>Type</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Required</th>
+                    <th>Schema</th>
+                    <th>Default</th>
+                </tr>
+                
+                    <tr>
+                        <td class="parameter">
+                            
+                            <span class="param-in">Query </span>
+                            
+                            
+                            
+                        </td>
+                        <td class="param-name">apiId</td>
+                        <td>
+                            <p class="param-description">Will return environment list for the provided API.</p>
+                        </td>
+                        <td>
+                            
+                        </td>
+                        <td>
+                            <span class="param-type">
+                                String
+                                
+                            </span>
+                        </td>
+                        <td>
+                            
+                        </td>
+                    </tr>
+                
+            </table>
+
+            <h4 class="section">Responses</h4>
+
+            <table class="table table-striped table-bordered">
+                <colgroup>
+                    <col style="width: 33%;">
+                    <col style="width: 33%;">
+                    <col style="width: 33%;">
+                </colgroup>
+                <thead>
+                <tr>
+                    <th>HTTP Code</th>
+                    <th>Description</th>
+                    <th>Schema</th>
+                </tr>
+                </thead>
+                <tbody>
+                
+                    <tr>
+                        <td class="parameter"><p>200</p></td>
+                        <td class="parameter"><p>OK. \nEnvironment list is returned.</p></td>
+                        <td class="parameter">
+                            <span class="parameter">
+                                
+                                    <a href="#!/models#EnvironmentList">EnvironmentList</a>
+                                
+                                
+                            </span>
+                        </td>
+                    </tr>
+                
+                    <tr>
+                        <td class="parameter"><p>304</p></td>
+                        <td class="parameter"><p>Not Modified. \nEmpty body because the client has already the latest version of the requested resource.</p></td>
+                        <td class="parameter">
+                            <span class="parameter">
+                                
+                                
+                                    
+                                
+                            </span>
+                        </td>
+                    </tr>
+                
+                    <tr>
+                        <td class="parameter"><p>404</p></td>
+                        <td class="parameter"><p>Not Found. \nRequested API does not exist.</p></td>
+                        <td class="parameter">
+                            <span class="parameter">
+                                
+                                    <a href="#!/models#Error">Error</a>
+                                
+                                
+                            </span>
+                        </td>
+                    </tr>
+                
+                </tbody>
+            </table>
+        
+    
+</div>
