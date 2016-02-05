@@ -36,7 +36,8 @@
                             <p class="param-description">{{description}}</p>
                         </td>
                         <td>
-                            {{#optional}}<span class="param-optional-flag">(optional)</span>{{/optional}}
+                            {{#required}}<span class="param-required">{{required}}</span>{{/required}}
+                            {{^required}}<span class="param-required">false</span>{{/required}}
                         </td>
                         <td>
                             <span class="param-type">
@@ -47,7 +48,7 @@
                             </span>
                         </td>
                         <td>
-                            {{default}}
+                            {{defaultValue}}
                         </td>
                     </tr>
                 {{/allParams}}
