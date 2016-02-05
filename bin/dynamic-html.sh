@@ -21,11 +21,13 @@ executable="./modules/swagger-codegen-cli/target/swagger-codegen-cli.jar"
 
 if [ ! -f "$executable" ]
 then
-  mvn clean package
+  mvn clean package -Dmaven.test.skip=true
 fi
 
 # if you've executed sbt assembly previously it will use that instead.
+#export JAVA_OPTS="${JAVA_OPTS} -XX:MaxPermSize=256M -Xmx1024M -DloggerPath=conf/log4j.properties -Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=5005"
 export JAVA_OPTS="${JAVA_OPTS} -XX:MaxPermSize=256M -Xmx1024M -DloggerPath=conf/log4j.properties"
-ags="$@ generate -i modules/swagger-codegen/src/test/resources/2_0/petstore.json -l dynamic-html  -o samples/dynamic-html"
+ags="$@ generate -i apim/publisher-api.yaml -l dynamic-html  -o apim/publisher2/ -t my-html/"
+#ags="$@ generate -i apim/store-api.yaml -l dynamic-html  -o apim/store/ -t my-html"
 
 java $JAVA_OPTS -jar $executable $ags
