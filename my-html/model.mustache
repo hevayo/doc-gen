@@ -26,7 +26,11 @@
                     <tr>
                         <td class="parameter"><p>{{name}}</p></td>
                         <td class="parameter"><p>{{description}}</p></td>
-                        <td class="parameter"><p>{{type}}</p></td>
+                        <td class="parameter">
+                            {{#baseType}}
+                                <a href="#!/models#{{baseType}}">{{baseType}}</a>
+                            {{/baseType}}
+                        </td>
                         <td class="parameter">
                             {{#required}}<p>{{required}}</p>{{/required}}
                             {{^required}}<p>false</p>{{/required}}
