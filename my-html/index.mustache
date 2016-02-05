@@ -127,10 +127,11 @@
     <div id="sidebar-wrapper">
         <div class="bs-docs-sidebar">
             <ul class="nav nav-stacked fixed">
+                <h1>Resources</h1>
                 {{#apiInfo}}
                     {{#apis}}
                         <li class="section-box">
-                            <a href="#!/{{classname}}">{{classname}}</a>
+                            {{classname}}
                             <ul class="nav nav-stacked">
                                 {{#operations}}
                                     {{#operation}}
@@ -141,6 +142,16 @@
                         </li>
                     {{/apis}}
                 {{/apiInfo}}
+                <h1>Definitions</h1>
+                {{#models}}
+                    {{#model}}
+                        <li class="section-box">
+                            <ul class="nav nav-stacked">
+                                <a href="#!/models#{{classname}}">{{classname}}</a>
+                            </ul>
+                        </li>
+                    {{/model}}
+                {{/models}}
             </ul>
         </div>
     </div>
