@@ -41,6 +41,16 @@ public class StaticDocCodegen extends DefaultCodegen implements CodegenConfig {
                 outputFolder + "/assets/css", "bootstrap.min.css"));
         supportingFiles.add(new SupportingFile("assets/css/style.css",
                 outputFolder + "/assets/css", "style.css"));
+        supportingFiles.add(new SupportingFile("glyphicons-halflings-regular.eot",
+                outputFolder + "/assets/fonts", "glyphicons-halflings-regular.eot"));
+        supportingFiles.add(new SupportingFile("glyphicons-halflings-regular.svg",
+                outputFolder + "/assets/fonts", "glyphicons-halflings-regular.svg"));
+        supportingFiles.add(new SupportingFile("glyphicons-halflings-regular.ttf",
+                outputFolder + "/assets/fonts", "glyphicons-halflings-regular.ttf"));
+        supportingFiles.add(new SupportingFile("glyphicons-halflings-regular.woff",
+                outputFolder + "/assets/fonts", "glyphicons-halflings-regular.woff"));
+        supportingFiles.add(new SupportingFile("glyphicons-halflings-regular.woff2",
+                outputFolder + "/assets/fonts", "glyphicons-halflings-regular.woff2"));
         supportingFiles.add(new SupportingFile("assets/images/logo.png",
                 outputFolder + "/assets/images", "logo.png"));
         supportingFiles.add(new SupportingFile("assets/js/bootstrap.min.js",
