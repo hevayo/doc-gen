@@ -15,8 +15,8 @@
                 <tr>
                     <th>Name</th>
                     <th>Description</th>
-                    <th>Schema</th>
                     <th>Required</th>
+                    <th>Schema</th>
                     <th>Default</th>
                     <th>Example</th>
                 </tr>
@@ -27,13 +27,13 @@
                         <td class="parameter"><p>{{name}}</p></td>
                         <td class="parameter"><p>{{description}}</p></td>
                         <td class="parameter">
+                            {{#required}}<p>{{required}}</p>{{/required}}
+                            {{^required}}<p>false</p>{{/required}}
+                        </td>
+                        <td class="parameter">
                             {{#baseType}}
                                 <a href="#!/models#{{baseType}}">{{baseType}}</a>
                             {{/baseType}}
-                        </td>
-                        <td class="parameter">
-                            {{#required}}<p>{{required}}</p>{{/required}}
-                            {{^required}}<p>false</p>{{/required}}
                         </td>
                         <td class="parameter"> <p>{{defaultValue}}</p></td>
                         <td class="parameter"> <p>{{example}}</p></td>
