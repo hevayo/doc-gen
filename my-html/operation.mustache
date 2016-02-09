@@ -6,8 +6,8 @@
             <hr/>
             <h3 class="operation-heading">{{ summary }}</h3>
 
-            <p>{{description}}</p>
-            {{#notes}}<p>{{notes}}</p>{{/notes}}
+            <p class="marked">{{description}}</p>
+            {{#notes}}<p class="marked">{{notes}}</p>{{/notes}}
             <h4 class="section-heading">URL</h4>
             <code>{{basePath}}{{path}}</code>
             <h4 class="section-heading">HTTP Method</h4>
@@ -43,7 +43,7 @@
                         </td>
                         <td class="param-name">{{baseName}}</td>
                         <td>
-                            <p class="param-description">{{description}}</p>
+                            <p class="param-description marked">{{description}}</p>
                         </td>
                         <td>
                             {{#required}}<span class="param-required">{{required}}</span>{{/required}}
@@ -58,7 +58,7 @@
                             </span>
                         </td>
                         <td>
-                            {{defaultValue}}
+                            <p class="marked">{{defaultValue}}</p>
                         </td>
                     </tr>
                 {{/allParams}}
@@ -82,8 +82,8 @@
                 <tbody>
                 {{#responses}}
                     <tr>
-                        <td class="parameter"><p>{{code}}</p></td>
-                        <td class="parameter"><p>{{message}}</p></td>
+                        <td class="parameter"><p class="marked">{{code}}</p></td>
+                        <td class="parameter"><p class="marked">{{message}}</p></td>
                         <td class="parameter">
                             <span class="parameter">
                                 {{#baseType}}
