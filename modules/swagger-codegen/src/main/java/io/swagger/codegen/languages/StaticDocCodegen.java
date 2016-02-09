@@ -41,18 +41,30 @@ public class StaticDocCodegen extends DefaultCodegen implements CodegenConfig {
                 outputFolder + "/assets/css", "bootstrap.min.css"));
         supportingFiles.add(new SupportingFile("assets/css/style.css",
                 outputFolder + "/assets/css", "style.css"));
+        supportingFiles.add(new SupportingFile("assets/fonts/glyphicons-halflings-regular.eot",
+                outputFolder + "/assets/fonts", "glyphicons-halflings-regular.eot"));
+        supportingFiles.add(new SupportingFile("assets/fonts/glyphicons-halflings-regular.svg",
+                outputFolder + "/assets/fonts", "glyphicons-halflings-regular.svg"));
+        supportingFiles.add(new SupportingFile("assets/fonts/glyphicons-halflings-regular.ttf",
+                outputFolder + "/assets/fonts", "glyphicons-halflings-regular.ttf"));
+        supportingFiles.add(new SupportingFile("assets/fonts/glyphicons-halflings-regular.woff",
+                outputFolder + "/assets/fonts", "glyphicons-halflings-regular.woff"));
+        supportingFiles.add(new SupportingFile("assets/fonts/glyphicons-halflings-regular.woff2",
+                outputFolder + "/assets/fonts", "glyphicons-halflings-regular.woff2"));
         supportingFiles.add(new SupportingFile("assets/images/logo.png",
                 outputFolder + "/assets/images", "logo.png"));
         supportingFiles.add(new SupportingFile("assets/js/bootstrap.min.js",
                 outputFolder + "/assets/js", "bootstrap.min.js"));
         supportingFiles.add(new SupportingFile("assets/js/marked.min.js",
                 outputFolder + "/assets/js", "marked.min.js"));
-        supportingFiles.add(new SupportingFile("assets/js/jquery-1.8.3.min.js",
-                outputFolder + "/assets/js", "jquery-1.8.3.min.js"));
+        supportingFiles.add(new SupportingFile("assets/js/jquery-2.2.0.min.js",
+                outputFolder + "/assets/js", "jquery-2.2.0.min.js"));
         supportingFiles.add(new SupportingFile("assets/js/main.js",
                 outputFolder + "/assets/js", "main.js"));
         supportingFiles.add(new SupportingFile("index.mustache",
                 outputFolder, "index.html"));
+        supportingFiles.add(new SupportingFile("guide.html",
+                outputFolder, "guide.html"));
 
         instantiationTypes.put("array", "ArrayList");
         instantiationTypes.put("map", "HashMap");

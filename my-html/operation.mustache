@@ -1,13 +1,13 @@
 <div class="main-content">
-    <h1>{{classname}}</h1>
+    <h1><a name="{{classname}}"></a>{{classname}}</h1>
 
     {{#operations}}
         {{#operation}}
             <hr/>
-            <h3 class="operation-heading">{{ summary }}</h3>
+            <h3 class="operation-heading"><a name="{{nickname}}"></a>{{ summary }}</h3>
 
-            <p>{{description}}</p>
-            {{#notes}}<p>{{notes}}</p>{{/notes}}
+            <p class="marked">{{description}}</p>
+            {{#notes}}<p class="marked">{{notes}}</p>{{/notes}}
             <h4 class="section-heading">URL</h4>
             <code>{{basePath}}{{path}}</code>
             <h4 class="section-heading">HTTP Method</h4>
@@ -15,12 +15,12 @@
             <h4 class="section-heading">Parameters</h4>
             <table class="table table-striped table-bordered">
                 <colgroup>
-                    <col style="width: 5%;">
-                    <col style="width: 20%;">
-                    <col style="width: 40%;">
-                    <col style="width: 5%;">
-                    <col style="width: 10%;">
-                    <col style="width: 20%;">
+                    <col style="width: 5%;"/>
+                    <col style="width: 20%;"/>
+                    <col style="width: 40%;"/>
+                    <col style="width: 5%;"/>
+                    <col style="width: 10%;"/>
+                    <col style="width: 20%;"/>
                 </colgroup>
                 <thead>
                 <tr>
@@ -43,7 +43,7 @@
                         </td>
                         <td class="param-name">{{baseName}}</td>
                         <td>
-                            <p class="param-description">{{description}}</p>
+                            <p class="param-description marked">{{description}}</p>
                         </td>
                         <td>
                             {{#required}}<span class="param-required">{{required}}</span>{{/required}}
@@ -58,7 +58,7 @@
                             </span>
                         </td>
                         <td>
-                            {{defaultValue}}
+                            <p class="marked">{{defaultValue}}</p>
                         </td>
                     </tr>
                 {{/allParams}}
@@ -68,9 +68,9 @@
 
             <table class="table table-striped table-bordered">
                 <colgroup>
-                    <col style="width: 33%;">
-                    <col style="width: 33%;">
-                    <col style="width: 33%;">
+                    <col style="width: 15%;"/>
+                    <col style="width: 70%;"/>
+                    <col style="width: 15%;"/>
                 </colgroup>
                 <thead>
                 <tr>
@@ -82,8 +82,8 @@
                 <tbody>
                 {{#responses}}
                     <tr>
-                        <td class="parameter"><p>{{code}}</p></td>
-                        <td class="parameter"><p>{{message}}</p></td>
+                        <td class="parameter"><p class="marked">{{code}}</p></td>
+                        <td class="parameter"><p class="marked">{{message}}</p></td>
                         <td class="parameter">
                             <span class="parameter">
                                 {{#baseType}}
