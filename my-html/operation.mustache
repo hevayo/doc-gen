@@ -1,10 +1,10 @@
 <div class="main-content">
-    <h1>{{classname}}</h1>
+    <h1><a name="{{classname}}"></a>{{classname}}</h1>
 
     {{#operations}}
         {{#operation}}
             <hr/>
-            <h3 class="operation-heading">{{ summary }}</h3>
+            <h3 class="operation-heading"><a name="{{nickname}}"></a>{{ summary }}</h3>
 
             <p class="marked">{{description}}</p>
             {{#notes}}<p class="marked">{{notes}}</p>{{/notes}}
@@ -15,12 +15,12 @@
             <h4 class="section-heading">Parameters</h4>
             <table class="table table-striped table-bordered">
                 <colgroup>
-                    <col style="width: 5%;">
-                    <col style="width: 20%;">
-                    <col style="width: 40%;">
-                    <col style="width: 5%;">
-                    <col style="width: 10%;">
-                    <col style="width: 20%;">
+                    <col style="width: 5%;"/>
+                    <col style="width: 20%;"/>
+                    <col style="width: 40%;"/>
+                    <col style="width: 5%;"/>
+                    <col style="width: 10%;"/>
+                    <col style="width: 20%;"/>
                 </colgroup>
                 <thead>
                 <tr>
@@ -68,9 +68,9 @@
 
             <table class="table table-striped table-bordered">
                 <colgroup>
-                    <col style="width: 33%;">
-                    <col style="width: 33%;">
-                    <col style="width: 33%;">
+                    <col style="width: 33%;"/>
+                    <col style="width: 33%;"/>
+                    <col style="width: 33%;"/>
                 </colgroup>
                 <thead>
                 <tr>
