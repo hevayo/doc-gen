@@ -27,7 +27,7 @@
      */
     function loadPage(path, anchor) {
         $('div.non-sidebar').load(path, function () {
-            formatToHTML();
+            formatPage();
             goToAnchor(anchor);
         });
     }
@@ -47,12 +47,15 @@
      * Escaped '\n' and '\"' characters will be escaped.
      * Markdown formatting will be applied.
      */
-    function formatToHTML() {
+    function formatPage() {
         $('.marked').each(function () {
             var text = $(this).text();
             text = text.replace(new RegExp('(\\\\n)', 'g'), " ");
             text = text.replace(new RegExp('(\\\\")', 'g'), "");
             $(this).html(marked(text));
+        });
+        $('.pre code').each(function(i, block) {
+            hljs.highlightBlock(block);
         });
     }
 

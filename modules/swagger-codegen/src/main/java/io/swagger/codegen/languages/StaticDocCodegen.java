@@ -41,6 +41,8 @@ public class StaticDocCodegen extends DefaultCodegen implements CodegenConfig {
                 outputFolder + "/assets/css", "bootstrap.min.css"));
         supportingFiles.add(new SupportingFile("assets/css/style.css",
                 outputFolder + "/assets/css", "style.css"));
+        supportingFiles.add(new SupportingFile("assets/css/darkula.css",
+                outputFolder + "/assets/css", "darkula.css"));
         supportingFiles.add(new SupportingFile("assets/fonts/glyphicons-halflings-regular.eot",
                 outputFolder + "/assets/fonts", "glyphicons-halflings-regular.eot"));
         supportingFiles.add(new SupportingFile("assets/fonts/glyphicons-halflings-regular.svg",
@@ -61,8 +63,12 @@ public class StaticDocCodegen extends DefaultCodegen implements CodegenConfig {
                 outputFolder + "/assets/js", "jquery-2.2.0.min.js"));
         supportingFiles.add(new SupportingFile("assets/js/main.js",
                 outputFolder + "/assets/js", "main.js"));
+        supportingFiles.add(new SupportingFile("assets/js/highlight.pack.js",
+                outputFolder + "/assets/js", "highlight.pack.js"));
         supportingFiles.add(new SupportingFile("index.mustache",
                 outputFolder, "index.html"));
+        supportingFiles.add(new SupportingFile("intro.mustache",
+                outputFolder, "intro.html"));
         supportingFiles.add(new SupportingFile("guide.html",
                 outputFolder, "guide.html"));
 
