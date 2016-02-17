@@ -1,0 +1,54 @@
+<div class="main-content">
+    <h2>Introduction</h2>
+
+    <p class="marked">{{{ swagger.info.description }}}</p>
+
+    <div class="sect2">
+        {{#swagger.info}}
+            <h3>Version information</h3>
+
+            <div class="paragraph">
+                <p class="marked">{{swagger.info.version}}</p>
+            </div>
+
+            {{#contact}}
+                <h3>Contact information</h3>
+
+                <div class="paragraph">
+                    <p class="marked">Contact: <a href="{{url}}">{{name}}</a></p>
+
+                    <p>Email: {{email}}</p>
+                </div>
+            {{/contact}}
+
+            {{#license}}
+                <h3>License information</h3>
+
+                <div class="paragraph">
+                    <p class="marked">License: {{name}}</p>
+
+                    <p class="marked">URL: {{url}}</p>
+                </div>
+            {{/license}}
+
+            <h3>URI Scheme</h3>
+
+            <div class="paragraph">
+                <p class="marked">Host: {{swagger.host}}</p>
+
+                <p class="marked">BasePath: {{swagger.basePath}}</p>
+                <code>Scheme: {{swagger.schemes}}</code>
+            </div>
+            <h3>Consumes</h3>
+
+            <div class="paragraph">
+                <code>{{swagger.consumes}}</code>
+            </div>
+            <h3>Produces</h3>
+
+            <div class="paragraph">
+                <code>{{swagger.produces}}</code>
+            </div>
+        {{/swagger.info}}
+    </div>
+</div>

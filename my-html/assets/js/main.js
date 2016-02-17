@@ -5,21 +5,15 @@
     var setPage = (function choose() {
         var url = window.location.href.toString();
         var hashParts = splitURL(url);
-        var path = "";
+        var path = "intro.html"; // default is introduction page
 
-        if (hashParts == "index.html") {
-            formatToHTML();
-            return;
-        }
         $('div.non-sidebar').empty();
         if (hashParts[0] == "models") {
-            path = "models/" + hashParts[1] + ".html";
-        } else {
-            if (hashParts.length > 2) {
-                path = "operations/" + hashParts[1] + ".html";
-            } else {
-                path = hashParts[1] + ".html";
-            }
+            path = "models/" + hashParts[1] + ".html"; // load matching model
+        } else if(hashParts[0] == 'operations'){
+            path = "operations/" + hashParts[1] + ".html"; // load matching operation
+        } else if(hashParts.length < 3) {
+            path = hashParts[1] + ".html";
         }
 
         loadPage(path , hashParts[2]);
@@ -73,6 +67,8 @@
 
         if (match && match.length > 0) {
             parts = parts.split("#");
+        } else {
+            parts = ["index.html", "intro"];
         }
         return parts;
     }
