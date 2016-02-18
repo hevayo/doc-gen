@@ -82,4 +82,8 @@
         e.preventDefault();
         $("#wrapper").toggleClass("toggled");
     });
+    $(".bs-docs-sidebar .nav>li>a").click(function() {
+        $(".bs-docs-sidebar .nav>li").removeClass('active');
+        $(this).parent().addClass('active');
+    });
 });

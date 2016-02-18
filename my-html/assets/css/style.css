@@ -128,9 +128,8 @@
 /* ============= SIDE NAV BAR ====================*/
 /* sidebar */
 .bs-docs-sidebar {
-    padding-left: 20px;
     margin-top: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 60px;
 }
 
 .bs-docs-sidebar > ul{
@@ -193,6 +192,18 @@ hr {
     height: 2px;
     margin-top: 60px;
     margin-bottom: 60px;
+}
+
+.bs-docs-sidebar h3 {
+    border-top: 1px solid #ddd;
+    background-color: #fff;
+    border-bottom: 1px solid #ddd;
+    font-size: 18px;
+    padding: 8px 20px;
+}
+
+.bs-docs-sidebar .nav .class-name {
+    padding-left: 30px;
 }
 
 .operation-heading {
