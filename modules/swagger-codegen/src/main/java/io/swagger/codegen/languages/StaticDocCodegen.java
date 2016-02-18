@@ -41,8 +41,8 @@ public class StaticDocCodegen extends DefaultCodegen implements CodegenConfig {
                 outputFolder + "/assets/css", "bootstrap.min.css"));
         supportingFiles.add(new SupportingFile("assets/css/style.css",
                 outputFolder + "/assets/css", "style.css"));
-        supportingFiles.add(new SupportingFile("assets/css/darkula.css",
-                outputFolder + "/assets/css", "darkula.css"));
+        supportingFiles.add(new SupportingFile("assets/css/github.css",
+                outputFolder + "/assets/css", "github.css"));
         supportingFiles.add(new SupportingFile("assets/fonts/glyphicons-halflings-regular.eot",
                 outputFolder + "/assets/fonts", "glyphicons-halflings-regular.eot"));
         supportingFiles.add(new SupportingFile("assets/fonts/glyphicons-halflings-regular.svg",
