@@ -140,7 +140,6 @@
 
 /* all links */
 .bs-docs-sidebar .nav>li>a {
-    color: #999;
     border-right: 2px solid transparent;
     padding: 4px 20px;
     font-size: 1em;
@@ -151,18 +150,20 @@
 .bs-docs-sidebar .nav .nav>li>a {
     padding-top: 1px;
     padding-bottom: 1px;
-    padding-left: 30px;
+    padding-left: 40px;
     font-size: 0.9em;
 }
 
 /* active & hover links */
-.bs-docs-sidebar .nav>.active>a, 
-.bs-docs-sidebar .nav>li>a:hover, 
+.bs-docs-sidebar .nav>.active>a,
 .bs-docs-sidebar .nav>li>a:focus {
-    color: #563d7c;                 
-    text-decoration: none;          
-    background-color: transparent;  
-    border-right-color: #563d7c; 
+    color: #2b2b2b;
+    background-color: transparent;
+    border-right-color: #2b2b2b;
+}
+.bs-docs-sidebar .nav>li>a:hover {
+    background-color: transparent;
+    border-right-color: #666;
 }
 /* all active links */
 .bs-docs-sidebar .nav>.active>a, 
@@ -192,6 +193,23 @@ hr {
     height: 2px;
     margin-top: 60px;
     margin-bottom: 60px;
+}
+
+
+a {
+    color: #999;
+}
+
+a:hover {
+    color: #666;
+    background-color: transparent;
+    text-decoration: none;
+}
+a:focus {
+    color: #2b2b2b;
+    background-color: transparent;
+    outline: none;
+    text-decoration: none;
 }
 
 .bs-docs-sidebar h3 {
