@@ -12,22 +12,43 @@
             <code>{{basePath}}{{path}}</code>
             <h4 class="section-heading">HTTP Method</h4>
             <code>{{httpMethod}}</code>
+            <h4 class="section-heading">CURL Example</h4>
+            {{#vendorExtensions.x-wso2-curl}}
+                <div class="pre"><code class="bash">{{vendorExtensions.x-wso2-curl}}</code></div>
+            {{/vendorExtensions.x-wso2-curl}}
+            {{^vendorExtensions.x-wso2-curl}}
+                <p>Not Available</p>
+            {{/vendorExtensions.x-wso2-curl}}
+
+            <h4 class="section-heading">Sample Request</h4>
+            {{#vendorExtensions.x-wso2-request}}
+                <div class="pre"><code class="json">{{vendorExtensions.x-wso2-request}}</code></div>
+            {{/vendorExtensions.x-wso2-request}}
+            {{^vendorExtensions.x-wso2-request}}
+                <p>Not Available</p>
+            {{/vendorExtensions.x-wso2-request}}
+
+            <h4 class="section-heading">Sample Response</h4>
+            {{#vendorExtensions.x-wso2-response}}
+                <div class="pre"><code class="json">{{vendorExtensions.x-wso2-response}}</code></div>
+            {{/vendorExtensions.x-wso2-response}}
+            {{^vendorExtensions.x-wso2-response}}
+                <p>Not Available</p>
+            {{/vendorExtensions.x-wso2-response}}
             <h4 class="section-heading">Parameters</h4>
-            <table class="table table-striped table-bordered">
+            <table class="table table-hover">
                 <colgroup>
-                    <col style="width: 5%;"/>
+                    <col style="width: 10%;"/>
                     <col style="width: 20%;"/>
                     <col style="width: 40%;"/>
-                    <col style="width: 5%;"/>
                     <col style="width: 10%;"/>
                     <col style="width: 20%;"/>
                 </colgroup>
                 <thead>
-                <tr>
+                <tr class="active">
                     <th>Type</th>
                     <th>Name</th>
                     <th>Description</th>
-                    <th>Required</th>
                     <th>Schema</th>
                     <th>Default</th>
                 </tr>
@@ -41,13 +62,15 @@
                             {{#isHeaderParam}}<span class="param-in">Header </span>{{/isHeaderParam}}
                             {{#isBodyParam}}<span class="param-in">Body </span>{{/isBodyParam}}
                         </td>
-                        <td class="param-name">{{baseName}}</td>
-                        <td>
-                            <p class="param-description marked">{{description}}</p>
+                        <td class="param-name">
+                            <p>{{baseName}}</p>
+                            <p class="param-required">
+                                {{#required}}required{{/required}}
+                                {{^required}}optional{{/required}}
+                            </p>
                         </td>
                         <td>
-                            {{#required}}<span class="param-required">{{required}}</span>{{/required}}
-                            {{^required}}<span class="param-required">false</span>{{/required}}
+                            <p class="param-description marked">{{description}}</p>
                         </td>
                         <td>
                             <span class="param-type">
@@ -66,14 +89,14 @@
 
             <h4 class="section-heading">Responses</h4>
 
-            <table class="table table-striped table-bordered">
+            <table class="table table-hover">
                 <colgroup>
                     <col style="width: 15%;"/>
                     <col style="width: 70%;"/>
                     <col style="width: 15%;"/>
                 </colgroup>
                 <thead>
-                <tr>
+                <tr class="active">
                     <th>HTTP Code</th>
                     <th>Description</th>
                     <th>Schema</th>
