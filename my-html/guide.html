@@ -39,8 +39,8 @@
             example is shown below,
         </p>
 
-        <div class="pre"><code class="bash">curl -X POST -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "Content-Type: application/json" -d @payload.jsonhttp://localhost:9763/client-registration/v1/register</code></div>
-
+        <div class="pre"><code class="bash">curl -X POST -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "Content-Type: application/json" -d @payload.json http://localhost:9763/client-registration/v0.9/register</code></div>
+        <br/>
         <p>
             Sample request:
         </p>
@@ -52,6 +52,7 @@
     "grantType": "password refresh_token",
     "saasApp": true
 }</code></div>
+        <br/>
         <p>
             Sample response:
         </p>
@@ -70,24 +71,27 @@
     "clientId": "HfEl1jJPdg5tbtrxhAwybN05QGoa",
     "clientSecret": "l6c0aoLcWR3fwezHhc7XoGOht5Aa"
 }</code></div>
+        <br/>
         <p>
             During the API invocation process request, click the CXF handler first, which calls an introspection API to
             validate the token. Generate the access token using the already created OAuth application. A sample call to
             generate the access token is shown below.
         </p>
 
-        <div class="pre"><code class="bash">curl -k -d "grant_type=password&username=sanjeewa&password=sanjeewa&scope=API_SUBSCRIBER_SCOPE" -H "Authorization: Basic SGZFbDFqSlBkZzV0YnRyeGhBd3liTjA1UUdvYTpsNmMwYW9MY1dSM2Z3ZXpIaGM3WG9HT2h0NUFh" https://127.0.0.1:8243/token</code></div>
+        <div class="pre"><code class="bash">curl -k -d "grant_type=password&username=admin&password=admin&scope=apim:api_view" -H "Authorization: Basic SGZFbDFqSlBkZzV0YnRyeGhBd3liTjA1UUdvYTpsNmMwYW9MY1dSM2Z3ZXpIaGM3WG9HT2h0NUFh" https://127.0.0.1:8243/token</code></div>
+        <br/>
         <p>
             Token response:
         </p>
 
         <div class="pre"><code class="json">{
-    "scope":"API_SUBSCRIBER_SCOPE",
+    "scope":"apim:api_view",
     "token_type":"Bearer",
     "expires_in":3600,
     "refresh_token":"33c3be152ebf0030b3fb76f2c1f80bf8",
     "access_token":"292ff0fd256814536baca0926f483c8d"
 }</code></div>
+        <br/>
         <p>
             Now you have a valid access token, which you can use to invoke an API. Navigate through the API descriptions
             to find the required API, obtain an access token as described above and invoke the API with the

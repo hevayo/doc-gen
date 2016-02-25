@@ -7,7 +7,6 @@
         var hashParts = splitURL(url);
         var path = "intro.html"; // default is introduction page
 
-        $('div.non-sidebar').empty();
         if (hashParts[0] == "models") {
             path = "models/" + hashParts[1] + ".html"; // load matching model
         } else if(hashParts[0] == 'operations'){
@@ -16,6 +15,7 @@
             path = hashParts[1] + ".html";
         }
 
+        $('div.non-sidebar').empty();
         loadPage(path , hashParts[2]);
         return choose;
     })();
