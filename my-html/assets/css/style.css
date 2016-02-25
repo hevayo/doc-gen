@@ -239,9 +239,12 @@ a:focus {
     color: #b9b9b9;
 }
 
+.pointer {
+    cursor: pointer;
+}
+
 .pre {
     white-space: pre-wrap;
-    border: 1px solid #7f7f7f;
     border-radius: 5px;
 }
 
