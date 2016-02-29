@@ -92,6 +92,12 @@
                         </td>
                         <td>
                             <p class="param-description marked">{{description}}</p>
+                            {{#isEnum}}
+                                <p><b>Accepted values: </b></p>
+{{#allowableValues}}{{#values}}
+<code>{{.}}</code>
+{{/values}}{{/allowableValues}}
+                            {{/isEnum}}
                         </td>
                         <td>
                             <span class="param-type">
