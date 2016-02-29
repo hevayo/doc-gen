@@ -242,6 +242,11 @@ a:focus {
 .class-name {
     margin-top: 10px;
 }
+
+.hljs {
+    background: #e8e8e8;
+}
+
 .navbar {
     background-color: #91961f;
 }
@@ -268,6 +273,7 @@ a:focus {
 .navbar-brand:hover {
     color: #eee;
 }
+
 .operation-heading {
     font-weight: bold;
 }
