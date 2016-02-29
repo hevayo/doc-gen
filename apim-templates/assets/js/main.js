@@ -38,7 +38,7 @@
      */
     function goToAnchor(anchor) {
         if (anchor) {
-            window.scrollTo(0, $('a[name=' + anchor + ']').offset().top - 80);
+            window.scrollTo(0, $('a[name=' + anchor + ']').offset().top - 120);
         }
     }
 

@@ -7,7 +7,7 @@
 /* Toggle Styles */
 
 #wrapper {
-    margin-top:50px;
+    margin-top:87px;
     padding-left: 0;
     -webkit-transition: all 0.5s ease;
     -moz-transition: all 0.5s ease;
@@ -129,7 +129,7 @@
 /* sidebar */
 .bs-docs-sidebar {
     margin-top: 20px;
-    margin-bottom: 60px;
+    margin-bottom: 100px;
 }
 
 .bs-docs-sidebar > ul{
@@ -148,6 +148,7 @@
 
 /* nested links */
 .bs-docs-sidebar .nav .nav>li>a {
+    color: #666;
     padding-top: 1px;
     padding-bottom: 1px;
     padding-left: 40px;
@@ -157,25 +158,27 @@
 /* active & hover links */
 .bs-docs-sidebar .nav>.active>a,
 .bs-docs-sidebar .nav>li>a:focus {
-    color: #2b2b2b;
     background-color: transparent;
     border-right-color: #2b2b2b;
+    color: #2b2b2b;
+    font-weight: bold;
 }
 .bs-docs-sidebar .nav>li>a:hover {
     background-color: transparent;
     border-right-color: #666;
+    text-decoration: underline;
 }
 /* all active links */
 .bs-docs-sidebar .nav>.active>a, 
 .bs-docs-sidebar .nav>.active:hover>a,
 .bs-docs-sidebar .nav>.active:focus>a {
-    font-weight: 700;
+    font-weight: bold;
 }
 /* nested active links */
 .bs-docs-sidebar .nav .nav>.active>a, 
 .bs-docs-sidebar .nav .nav>.active:hover>a,
 .bs-docs-sidebar .nav .nav>.active:focus>a {
-    font-weight: 500;
+    font-weight: bold;
 }
 
 /* hide inactive nested list *//*
@@ -196,7 +199,7 @@ hr {
 }
 
 code {
-    background-color: #f8f8f8;
+    background-color: #e8e8e8;
     border-radius: 4px;
     color: #333;
     font-size: 90%;
@@ -204,11 +207,10 @@ code {
 }
 
 a {
-    color: #999;
+    color: #326ca6;
 }
 
 a:hover {
-    color: #666;
     background-color: transparent;
     text-decoration: none;
 }
@@ -231,6 +233,41 @@ a:focus {
     padding-left: 30px;
 }
 
+.bs-docs-sidebar hr {
+    background-color: transparent;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.class-name {
+    margin-top: 10px;
+}
+.navbar {
+    background-color: #91961f;
+}
+
+.navbar .navbar-nav {
+    margin-top: 17px;
+}
+
+.navbar .navbar-nav > li > a {
+    color: #fff;
+}
+
+.navbar .navbar-nav > li > a:focus, .navbar .navbar-nav > li > a:hover {
+    color: #fff;
+    background-color: #336699;
+}
+
+.navbar-brand {
+    color: #fff;
+    height: auto;
+    padding: 0px;
+}
+
+.navbar-brand:hover {
+    color: #eee;
+}
 .operation-heading {
     font-weight: bold;
 }
