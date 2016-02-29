@@ -66,8 +66,8 @@
             <ul class="nav nav-stacked fixed">
                 <li class="section-box">
                     <ul class="nav nav-stacked">
-                        <li><a href="#intro">Introduction</a></li>
-                        <li><a href="#guide">Getting Started</a></li>
+                        <li id="ov-intro"><a href="#intro">Introduction</a></li>
+                        <li id="ov-guide"><a href="#guide">Getting Started</a></li>
                     </ul>
                 </li>
             </ul>
@@ -75,12 +75,13 @@
             <ul class="nav nav-stacked fixed">
                 {{#apiInfo}}
                     {{#apis}}
+                        <hr/>
                         <span class="class-name">{{classname}}</span>
                         <li class="section-box">
                             <ul class="nav nav-stacked">
                                 {{#operations}}
                                     {{#operation}}
-                                        <li><a href="#!/operations#{{classname}}#{{nickname}}">{{{summary}}}</a></li>
+                                        <li id="op-{{nickname}}"><a href="#!/operations#{{classname}}#{{nickname}}">{{{summary}}}</a></li>
                                     {{/operation}}
                                 {{/operations}}
                             </ul>
@@ -94,7 +95,7 @@
                     {{#model}}
                         <li class="section-box">
                             <ul class="nav nav-stacked">
-                                <li><a href="#!/models#{{classname}}">{{classname}}</a></li>
+                                <li id="def-{{classname}}"><a href="#!/models#{{classname}}">{{classname}}</a></li>
                             </ul>
                         </li>
                     {{/model}}

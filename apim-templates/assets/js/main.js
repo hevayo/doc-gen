@@ -6,15 +6,21 @@
         var url = window.location.href.toString();
         var hashParts = splitURL(url);
         var path = "intro.html"; // default is introduction page
+        var sidebarItem = "";
 
         if (hashParts[0] == "models") {
             path = "models/" + hashParts[1] + ".html"; // load matching model
+            sidebarItem = "#def-" + hashParts[1];
         } else if(hashParts[0] == 'operations'){
             path = "operations/" + hashParts[1] + ".html"; // load matching operation
+            sidebarItem = "#op-" + hashParts[2];
         } else if(hashParts.length < 3) {
             path = hashParts[1] + ".html";
+            sidebarItem = "#ov-" + hashParts[1];
         }
 
+        $(".bs-docs-sidebar .nav>li").removeClass('active');
+        $(sidebarItem).addClass('active');
         $('div.non-sidebar').empty();
         loadPage(path , hashParts[2]);
         return choose;
@@ -84,7 +90,5 @@
     });
     $(".bs-docs-sidebar .nav>li>a").click(function() {
         setPage();
-        $(".bs-docs-sidebar .nav>li").removeClass('active');
-        $(this).parent().addClass('active');
     });
 });
