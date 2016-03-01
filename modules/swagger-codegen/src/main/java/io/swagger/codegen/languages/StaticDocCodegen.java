@@ -67,8 +67,6 @@ public class StaticDocCodegen extends DefaultCodegen implements CodegenConfig {
                 outputFolder + "/assets/js", "highlight.pack.js"));
         supportingFiles.add(new SupportingFile("index.mustache",
                 outputFolder, "index.html"));
-        supportingFiles.add(new SupportingFile("intro.mustache",
-                outputFolder, "intro.html"));
         supportingFiles.add(new SupportingFile("guide.html",
                 outputFolder, "guide.html"));
 

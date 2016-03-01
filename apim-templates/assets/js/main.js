@@ -5,7 +5,7 @@
     var setPage = (function choose() {
         var url = window.location.href.toString();
         var hashParts = splitURL(url);
-        var path = "intro.html"; // default is introduction page
+        var path = "index.html"; // default is introduction page
         var sidebarItem = "";
 
         if (hashParts[0] == "models") {
@@ -17,6 +17,12 @@
         } else if(hashParts.length < 3) {
             path = hashParts[1] + ".html";
             sidebarItem = "#ov-" + hashParts[1];
+            if(hashParts[1] == "index") {
+                $(".bs-docs-sidebar .nav>li").removeClass('active');
+                $(sidebarItem).addClass('active');
+                 formatPage();
+                return choose;
+            }
         }
 
         $(".bs-docs-sidebar .nav>li").removeClass('active');
@@ -77,7 +83,7 @@
         if (match && match.length > 0) {
             parts = parts.split("#");
         } else {
-            parts = ["index.html", "intro"];
+            parts = ["", "index"];
         }
         return parts;
     }
@@ -87,8 +93,5 @@
     $("#menu-toggle").click(function (e) {
         e.preventDefault();
         $("#wrapper").toggleClass("toggled");
-    });
-    $(".bs-docs-sidebar .nav>li>a").click(function() {
-        setPage();
     });
 });
